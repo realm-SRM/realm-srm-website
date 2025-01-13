@@ -1,0 +1,6 @@
+#python
+venv/
+__pycahce__/
+*.pyc
+
+.env
