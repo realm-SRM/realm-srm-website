@@ -12,7 +12,7 @@ function App() {
       .then((data) => setMessage(data.message));
   }, []);
   console.log(message);
-  return <div>{message}</div>;
+  return <div className="text-4xl">{message}</div>;
 }
 
 export default App
