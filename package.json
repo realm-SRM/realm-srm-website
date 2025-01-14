@@ -11,10 +11,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.0",
+    "@react-spring/parallax": "^9.7.5",
+    "@react-spring/web": "^9.7.5",
     "autoprefixer": "^10.4.20",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.1.1",
+    "react-use-gesture": "^9.1.3",
     "tailwindcss-text-stroke": "^0.0.5"
   },
   "devDependencies": {
