@@ -1,3 +1,5 @@
+import React from 'react'
+import Contact from './sections/Contact'
 import React, { useState, useEffect } from 'react';
 import Mainlogo from '../assets/realm.svg';
 import Waves from '../assets/Group 7.png';
@@ -63,7 +65,7 @@ const Home = () => {
         </div>
       </div>
 
-      
+      <Contact />
     </div>
     
     </>
