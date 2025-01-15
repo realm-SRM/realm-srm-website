@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Mainlogo from '../assets/realm.svg';
 import Waves from '../assets/Group 7.png';
 import AboutUs from './sections/AboutUs';
+import Domains from './Sections/Domains';
 
 const Home = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -66,6 +67,7 @@ const Home = () => {
       </div>
     </div>
     <AboutUs/>
+    <Domains/>
     <Contact />
     </>
   );

@@ -9,6 +9,8 @@ import Team from './Components/Team';
 import JoinUs from './Components/JoinUs';
 import Accelerators from './Components/Accelerators';
 
+
+
 const App = () => {
   return (
    <Router>
@@ -21,7 +23,7 @@ const App = () => {
         <Route path="/join-us" element={<JoinUs />} />
         <Route path="/accelerators" element={<Accelerators />} />
       </Routes>
-    <Footer/>
+      <Footer/> 
    </Router>
   );
 };
