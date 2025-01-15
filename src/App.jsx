@@ -10,6 +10,7 @@ import JoinUs from './Components/JoinUs';
 import Accelerators from './Components/Accelerators';
 
 
+
 const App = () => {
   return (
    <Router>
