@@ -90,7 +90,7 @@ export default function Contact(){
                     <div className="flex flex-row gap-16 mb-6">
                         <div>
                         <input
-                            className="bg-[#141930] border border-blue-900 text-xl font-bold px-3 py-1 w-80 text-gray-300 placeholder-slate-700 "
+                            className="bg-[#141930] border border-blue-900 text-xl font-bold rounded-md px-3 py-1 w-80 text-gray-300 placeholder-slate-700 "
                             type="text"
                             id="firstname"
                             name="firstname"
@@ -103,7 +103,7 @@ export default function Contact(){
 
                         <div>
                         <input
-                            className="bg-[#141930] border border-blue-900 text-xl font-bold px-3 py-1 w-80 text-gray-300 placeholder-slate-700 "
+                            className="bg-[#141930] border border-blue-900 text-xl font-bold rounded-md px-3 py-1 w-80 text-gray-300 placeholder-slate-700 "
                             type="text"
                             id="lastname"
                             name="lastname"
@@ -118,7 +118,7 @@ export default function Contact(){
                     <div className="flex flex-row gap-16 mb-6">
                         <div>
                         <input
-                            className="bg-[#141930] border border-blue-900 text-xl font-bold px-3 py-1 w-80 text-gray-300 placeholder-slate-700 "
+                            className="bg-[#141930] border border-blue-900 text-xl font-bold rounded-md px-3 py-1 w-80 text-gray-300 placeholder-slate-700 "
                             type="email"
                             id="email"
                             name="email"
@@ -131,7 +131,7 @@ export default function Contact(){
 
                         <div>
                         <input
-                            className="bg-[#141930] border border-blue-900 text-xl font-bold px-3 py-1 w-80 text-gray-300 placeholder-slate-700 "
+                            className="bg-[#141930] border border-blue-900 text-xl font-bold rounded-md px-3 py-1 w-80 text-gray-300 placeholder-slate-700 "
                             type="text"
                             id="phone"
                             name="phone"
@@ -145,7 +145,7 @@ export default function Contact(){
 
                     <div className="mb-6">
                     <textarea
-                        className="bg-[#141930] border border-blue-900 text-xl font-bold px-3 py-1 w-full min-h-40 text-gray-300 placeholder-slate-700 "
+                        className="bg-[#141930] border border-blue-900 text-xl font-bold rounded-md px-3 py-1 w-full min-h-40 text-gray-300 placeholder-slate-700 "
                         id="message"
                         name="message"
                         value={message}
@@ -162,14 +162,14 @@ export default function Contact(){
                     </div>
                 </form>
 
+                {responseMessage && <p className="text-xl text-[#FFDCC1] flex justify-center ">{responseMessage}</p>}
+
             </div>
 
         </div>
 
         <div className="h-1 border-t-0 border-b-[1px] border-red-400 w-10/12 ml-60 "></div>
 
-
-      {responseMessage && <p>{responseMessage}</p>}
         </div>
     );
 }
