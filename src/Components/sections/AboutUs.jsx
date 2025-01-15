@@ -13,23 +13,22 @@ const AboutUs = () => {
 
         <div className="w-full lg:w-1/2 mt-8 lg:mt-0 lg:ml-8 text-left">
           <h2 className="text-[85px]  font-bold text-[#FFDCC1] mb-4">
-            About Us
+            Our Vision
           </h2>
           <p className="text-[18px] font-normal mt-[-20px]  text-white leading-6">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-            libero repellendus corporis. Tempore quam blanditiis, fugit
-            asperiores doloremque, velit commodi, quaerat nemo excepturi minima
-            repudiandae nesciunt reiciendis ullam? Maxime consectetur
-            consequatur porro quo a! Ea eaque pariatur molestiae quasi harum
-            illo voluptate molestias sequi veritatis dicta veniam odit, nemo
-            dolores neque omnis quae eos nisi nam? Doloremque tempore voluptate
-            iste vel hic obcaecati, quaerat nobis at eum molestiae fugiat odit
-            veniam officia laboriosam culpa sit in, blanditiis dolorem, iusto
-            minima quod mollitia quas placeat consectetur? Delectus ipsam
-            doloremque nam consequuntur pariatur. Dolorem voluptas eveniet
-            expedita blanditiis nemo itaque voluptatibus minus!
+            Our vision is to build a vibrant community of innovators,
+            technologists, and leaders who drive advancements in technology and
+            creativity. We strive to create a platform that fosters learning,
+            collaboration, and growth. By equipping members with practical
+            skills, we empower them to work on impactful projects and make
+            meaningful contributions to the tech ecosystem. Through knowledge
+            sharing, teamwork, and innovation, we aim to inspire a culture of
+            continuous development and excellence. Together, we seek to push
+            boundaries, solve real-world challenges, and shape the future of
+            technology while supporting personal and professional growth for all
+            members.
           </p>
-          <button className="mt-6 px-8 py-1 bg-[#FFDCC1]  hover:bg-pink-300 text-[#F15191] font-bold text-[26px] rounded-full transition duration-300">
+          <button className="mt-6 px-8 py-1 bg-[#FFDCC1]  hover:bg-[#f1c09b] text-[#F15191] font-bold text-[26px] rounded-full transition duration-300">
             Know More?
           </button>
         </div>
