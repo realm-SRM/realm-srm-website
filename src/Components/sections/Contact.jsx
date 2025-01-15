@@ -65,7 +65,7 @@ export default function Contact(){
     
 
     return(
-        <div className="contact-form bg-[#141930] pb-10">
+        <div className="contact-form overflow-x-hidden bg-[#141930] pb-10">
 
             <p className="text-6xl font-bold py-10 text-[#FFDCC1] flex justify-center mb-6 ">Contact Us</p>
             
