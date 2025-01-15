@@ -7,7 +7,7 @@ import os
 
 load_dotenv()
 
-email_sender = "aditheprince120@gmail.com"
+email_sender = os.getenv('email')
 email_password = os.getenv('PASSKEY')
 
 contact_routes = Blueprint('contact_routes', __name__)
