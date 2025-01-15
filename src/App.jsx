@@ -8,6 +8,7 @@ import Events from './Components/Events';
 import Team from './Components/Team';
 import JoinUs from './Components/JoinUs';
 import Accelerators from './Components/Accelerators';
+import Domains from './Components/Sections/Domains';
 
 const App = () => {
   return (
@@ -21,7 +22,8 @@ const App = () => {
         <Route path="/join-us" element={<JoinUs />} />
         <Route path="/accelerators" element={<Accelerators />} />
       </Routes>
-    <Footer/>
+      <Domains/>
+      <Footer/> 
    </Router>
   );
 };
