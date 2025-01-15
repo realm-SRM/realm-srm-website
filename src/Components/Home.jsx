@@ -1,4 +1,3 @@
-import React from 'react'
 import Contact from './sections/Contact'
 import React, { useState, useEffect } from 'react';
 import Mainlogo from '../assets/realm.svg';
