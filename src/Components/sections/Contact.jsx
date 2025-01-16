@@ -1,9 +1,9 @@
 import { useState } from "react";
 import MapsComponent from './MapsComponent'
-import Github from '../../assets/github.png'
-import Twitter from '../../assets/twitter.png'
-import Facebook from '../../assets/facebook.png'
-import Instagram from '../../assets/instagram.png'
+import GitHubIcon from '@mui/icons-material/GitHub';
+import XIcon from '@mui/icons-material/X';
+import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 export default function Contact(){
 
@@ -67,7 +67,7 @@ export default function Contact(){
     return(
         <div className="contact-form overflow-x-hidden bg-[#141930] pb-10">
 
-            <p className="text-6xl font-bold py-10 text-[#FFDCC1] flex justify-center mb-6 ">Contact Us</p>
+        <p className="text-6xl font-bold py-10 text-[#FFDCC1] flex justify-center mb-6 ">Contact Us</p>
             
         <div className="h-1 border-t-0 border-b-[1px] border-red-400 w-10/12 ml-60 "></div>
         
@@ -75,18 +75,18 @@ export default function Contact(){
             <div>
                 <MapsComponent />
                 <div className="flex flex-row justify-center gap-5 my-8">
-                    <img src={Github} />
-                    <img src={Twitter} />
-                    <img src={Facebook} />
-                    <img src={Instagram} />
+                    <a href="http://github.com/realm-SRM" target="_blank"><button><GitHubIcon style={{'color': '#9A50A5', fontSize: 50}} /></button></a>
+                    <a href="http://github.com/realm-SRM" target="_blank"><button><XIcon style={{'color': '#9A50A5', fontSize: 50}} /></button></a>
+                    <a href="http://github.com/realm-SRM" target="_blank"><button><FacebookOutlinedIcon style={{'color': '#9A50A5', fontSize: 50}} /></button></a>
+                    <a href="http://github.com/realm-SRM" target="_blank"><button><InstagramIcon style={{'color': '#9A50A5', fontSize: 50}} /></button></a>
                 </div>
             </div>
 
             <div className="w-1 h-auto border-l-0 border-r-[1px] border-red-400 "></div>
 
-            <div className="mr-20 pr-14 w-3/6">
+            <div className="pr-20">
                 <form onSubmit={handleSubmit}>
-                    <p className="text-[#FFDCC1] font-bold text-3xl text-left mb-6">Leave Us a Message</p>
+                    <p className="text-[#FFDCC1] w-full font-bold text-3xl text-left mb-6">Leave Us a Message</p>
                     <div className="flex flex-row gap-16 mb-6">
                         <div>
                         <input

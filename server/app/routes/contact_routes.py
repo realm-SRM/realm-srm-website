@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request
 from dotenv import load_dotenv
 import os
 from google.oauth2.credentials import Credentials
+from google.auth.transport.requests import Request
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from google.auth.transport.requests import Request
