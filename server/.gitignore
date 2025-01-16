@@ -5,4 +5,4 @@ __pycahce__/
 
 .env
 
-app/routes/credentials.json
+/app/routes/credentials.json
