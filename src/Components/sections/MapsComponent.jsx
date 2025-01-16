@@ -7,8 +7,8 @@ const containerStyle = {
 }
 
 const center = {
-  lat: 12.819414548893743,
-  lng: 80.0391815074047,
+  lat: 12.8230,
+  lng: 80.0444,
 }
 
 function MapsComponent() {
@@ -22,6 +22,8 @@ function MapsComponent() {
   const onLoad = React.useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds(center)
     map.fitBounds(bounds)
+
+    map.setMapTypeId(google.maps.MapTypeId.SATELLITE)
 
     setMap(map)
   }, [])
