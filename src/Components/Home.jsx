@@ -31,7 +31,7 @@ const Home = () => {
     }
   }, [scrollY]);
 
-  const animationProgress = Math.min(scrollY / 300, 1); 
+  const animationProgress = Math.min(scrollY / 700, 1); 
 
   return (
     <>
@@ -42,15 +42,15 @@ const Home = () => {
         <img
           src={Waves}
           alt="Waves Illustration"
-          className="absolute bottom-[-77px] w-full z-20"
+          className="absolute bottom-[-127px] w-full z-20"
         />
 
        
         <div
-          className="absolute top-[15%] transform -translate-x-1/2 left-1/2"
+          className="absolute top-[25%] transform  -translate-x-1/2 left-1/2"
           style={{
             transform: `translate(-50%, ${250 - animationProgress * 500}px)`, 
-            zIndex: animationProgress < 2 ? 6 : 9, 
+            zIndex: animationProgress < 3 ? 6 : 9, 
           }}
         >
           <img
@@ -59,7 +59,7 @@ const Home = () => {
             className="h-[451px] w-[460px]"
           />
         </div>
-        <div className="absolute top-[170px] ml-[30px] z-30 flex justify-center items-center">
+        <div className="absolute top-[200px] ml-[30px] z-30 flex justify-center items-center">
           <span className="text-[#FBE7CF] font-poppins text-[168px] font-semibold tracking-widest text-stroke-md text-stroke-black">
             realm
           </span>
