@@ -2,7 +2,7 @@ import Contact from './sections/Contact'
 import React, { useState, useEffect } from 'react';
 import Mainlogo from '../assets/realm.svg';
 import AboutUs from './sections/AboutUs';
-import Domains from './Sections/Domains';
+import Domains from './sections/Domains';
 import Wave from './Wave';
 
 const Home = () => {
@@ -35,7 +35,7 @@ const Home = () => {
 
   return (
     <>
-    <div className=" bg-[#1E1F36] overflow-hidden relative">
+    <div className=" bg-[#141930] overflow-hidden relative">
      
       <div className="sticky top-0 h-screen flex flex-col justify-end items-center">
               

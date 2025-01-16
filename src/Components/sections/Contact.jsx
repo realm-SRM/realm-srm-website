@@ -1,5 +1,4 @@
 import { useState } from "react";
-import MapsComponent from './MapsComponent'
 import GitHubIcon from '@mui/icons-material/GitHub';
 import XIcon from '@mui/icons-material/X';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
@@ -69,7 +68,7 @@ export default function Contact(){
 
         <p className="text-6xl font-bold py-10 text-[#FFDCC1] flex justify-center mb-6 ">Contact Us</p>
             
-        <div className="h-1 border-t-0 border-b-[1px] border-red-400 w-10/12 ml-60 "></div>
+        <div className="h-1 border-t-0 border-b-[1px] border-red-400 w-10/12 ml-32 "></div>
         
         <div className="flex flex-row justify-end gap-16 py-10">
             <div>
@@ -111,10 +110,10 @@ export default function Contact(){
       </style>
     </div>
                 <div className="flex flex-row justify-center gap-5 my-8">
-                    <a href="http://github.com/realm-SRM" target="_blank"><button><GitHubIcon style={{'color': '#9A50A5', fontSize: 50}} /></button></a>
-                    <a href="http://github.com/realm-SRM" target="_blank"><button><XIcon style={{'color': '#9A50A5', fontSize: 50}} /></button></a>
-                    <a href="http://github.com/realm-SRM" target="_blank"><button><FacebookOutlinedIcon style={{'color': '#9A50A5', fontSize: 50}} /></button></a>
-                    <a href="http://github.com/realm-SRM" target="_blank"><button><InstagramIcon style={{'color': '#9A50A5', fontSize: 50}} /></button></a>
+                    <a href="http://github.com/realm-SRM" target="_blank"><button><GitHubIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
+                    <a href="http://github.com/realm-SRM" target="_blank"><button><XIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
+                    <a href="http://github.com/realm-SRM" target="_blank"><button><FacebookOutlinedIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
+                    <a href="http://github.com/realm-SRM" target="_blank"><button><InstagramIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
                 </div>
             </div>
 
@@ -126,7 +125,7 @@ export default function Contact(){
                     <div className="flex flex-row gap-16 mb-6">
                         <div>
                         <input
-                            className="bg-[#141930] border border-blue-900 text-xl font-bold rounded-md px-3 py-1 w-80 text-gray-300 placeholder-slate-700 "
+                            className="bg-[#141930] border border-[#59569E] text-xl font-bold rounded-md px-3 py-1 w-80 text-gray-300 placeholder-slate-700 "
                             type="text"
                             id="firstname"
                             name="firstname"
@@ -139,7 +138,7 @@ export default function Contact(){
 
                         <div>
                         <input
-                            className="bg-[#141930] border border-blue-900 text-xl font-bold rounded-md px-3 py-1 w-80 text-gray-300 placeholder-slate-700 "
+                            className="bg-[#141930] border border-[#59569E] text-xl font-bold rounded-md px-3 py-1 w-80 text-gray-300 placeholder-slate-700 "
                             type="text"
                             id="lastname"
                             name="lastname"
@@ -154,7 +153,7 @@ export default function Contact(){
                     <div className="flex flex-row gap-16 mb-6">
                         <div>
                         <input
-                            className="bg-[#141930] border border-blue-900 text-xl font-bold rounded-md px-3 py-1 w-80 text-gray-300 placeholder-slate-700 "
+                            className="bg-[#141930] border border-[#59569E] text-xl font-bold rounded-md px-3 py-1 w-80 text-gray-300 placeholder-slate-700 "
                             type="email"
                             id="email"
                             name="email"
@@ -167,7 +166,7 @@ export default function Contact(){
 
                         <div>
                         <input
-                            className="bg-[#141930] border border-blue-900 text-xl font-bold rounded-md px-3 py-1 w-80 text-gray-300 placeholder-slate-700 "
+                            className="bg-[#141930] border border-[#59569E] text-xl font-bold rounded-md px-3 py-1 w-80 text-gray-300 placeholder-slate-700 "
                             type="text"
                             id="phone"
                             name="phone"
@@ -181,7 +180,7 @@ export default function Contact(){
 
                     <div className="mb-6">
                     <textarea
-                        className="bg-[#141930] border border-blue-900 text-xl font-bold rounded-md px-3 py-1 w-full min-h-40 text-gray-300 placeholder-slate-700 "
+                        className="bg-[#141930] border border-[#59569E] text-xl font-bold rounded-md px-3 py-1 w-full min-h-40 text-gray-300 placeholder-slate-700 "
                         id="message"
                         name="message"
                         value={message}
@@ -192,7 +191,7 @@ export default function Contact(){
                     </div>
 
                     <div className="flex justify-center">
-                    <button className="bg-[#F15191] text-[#FFDCC1] text-3xl font-bold rounded-full px-20 pb-2 pt-1" type="submit" disabled={isSubmitting}>
+                    <button className="bg-[#F15191] hover:brightness-110 transition text-[#FFDCC1] text-3xl font-bold rounded-full px-20 pb-2 pt-1" type="submit" disabled={isSubmitting}>
                         {isSubmitting ? 'Submitting...' : 'Submit'}
                     </button>
                     </div>
@@ -204,7 +203,7 @@ export default function Contact(){
 
         </div>
 
-        <div className="h-1 border-t-0 border-b-[1px] border-red-400 w-10/12 ml-60 "></div>
+        <div className="h-1 border-t-0 border-b-[1px] border-red-400 w-10/12 ml-32 "></div>
 
         </div>
     );
