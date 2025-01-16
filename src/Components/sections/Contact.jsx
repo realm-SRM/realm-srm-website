@@ -73,7 +73,43 @@ export default function Contact(){
         
         <div className="flex flex-row justify-end gap-16 py-10">
             <div>
-                <MapsComponent />
+            <div className="mapouter" style={{ position: 'relative', textAlign: 'right', width: '100%', height: '325px' }}>
+      <div className="gmap_canvas" style={{ overflow: 'hidden', background: 'none', width: '100%', height: '325px' }}>
+        <iframe
+          className="gmap_iframe"
+          width="100%"
+          frameBorder="0"
+          scrolling="no"
+          marginHeight="0"
+          marginWidth="0"
+          src="https://maps.google.com/maps?width=300&amp;height=325&amp;hl=en&amp;q=UB%20building%20srm%20university&amp;t=k&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+          style={{ height: '325px' }}
+          title="Google Map Embed"
+        />
+        <a href="https://sprunkiplay.com/" rel="nofollow">Sprunki Game</a>
+      </div>
+      <style>
+        {`
+          .mapouter {
+            position: relative;
+            text-align: right;
+            width: 100%;
+            height: 325px;
+          }
+
+          .gmap_canvas {
+            overflow: hidden;
+            background: none !important;
+            width: 100%;
+            height: 325px;
+          }
+
+          .gmap_iframe {
+            height: 325px !important;
+          }
+        `}
+      </style>
+    </div>
                 <div className="flex flex-row justify-center gap-5 my-8">
                     <a href="http://github.com/realm-SRM" target="_blank"><button><GitHubIcon style={{'color': '#9A50A5', fontSize: 50}} /></button></a>
                     <a href="http://github.com/realm-SRM" target="_blank"><button><XIcon style={{'color': '#9A50A5', fontSize: 50}} /></button></a>
