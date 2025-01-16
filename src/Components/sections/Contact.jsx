@@ -84,9 +84,9 @@ export default function Contact(){
 
             <div className="w-1 h-auto border-l-0 border-r-[1px] border-red-400 "></div>
 
-            <div className="mr-20 pr-14 w-3/6">
+            <div className="pr-20">
                 <form onSubmit={handleSubmit}>
-                    <p className="text-[#FFDCC1] font-bold text-3xl text-left mb-6">Leave Us a Message</p>
+                    <p className="text-[#FFDCC1] w-full font-bold text-3xl text-left mb-6">Leave Us a Message</p>
                     <div className="flex flex-row gap-16 mb-6">
                         <div>
                         <input
