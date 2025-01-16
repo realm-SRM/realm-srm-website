@@ -14,12 +14,13 @@ load_dotenv()
 SCOPES = ['https://www.googleapis.com/auth/gmail.send', 'https://www.googleapis.com/auth/spreadsheets']
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
-credentials_path = os.path.join(script_dir, 'credentials.json')
+root_dir = os.path.abspath(os.path.join(script_dir, '../../'))
+credentials_path = os.path.join(root_dir, 'credentials.json')
 
 email_sender = os.getenv('EMAIL')
 email_password = os.getenv('PASSKEY')
 email_reciever = os.getenv('OFFICIAL_EMAIL')
-spreadsheet_id = os.getenv('SPREADSHEET_ID')
+spreadsheet_id = os.getenv('SPREADSHEET_ID_CONTACT')
 sheet_range = 'Sheet1!A1'
 
 contact_routes = Blueprint('contact_routes', __name__)
