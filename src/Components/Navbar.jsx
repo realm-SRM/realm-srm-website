@@ -48,7 +48,7 @@ const Navbar = () => {
               to="/about"
               className="hover:text-pink-500 transition duration-300"
             >
-              About Us
+              Our Club
             </Link>
           </li>
           <li>
