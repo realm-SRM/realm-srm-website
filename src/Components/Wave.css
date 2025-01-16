@@ -1,0 +1,84 @@
+.air {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-size: 1000px 100px;
+  }
+
+.air1 {
+background: url('../assets/waves/wave1.png');
+animation: wave 30s linear infinite;
+z-index: 1000;
+opacity: 1;
+animation-delay: 0s;
+bottom: 0;
+}
+
+.air2 {
+background: url('../assets/waves/wave2.png');
+animation: wave2 15s linear infinite;
+z-index: 999;
+/* opacity: 0.9; */
+opacity: 1;
+animation-delay: -5s;
+bottom: 10px;
+}
+
+.air3 {
+background: url('../assets/waves/wave3.png');
+animation: wave 30s linear infinite;
+z-index: 998;
+/* opacity: 0.7; */
+opacity: 1;
+animation-delay: -2s;
+bottom: 20px;
+}
+
+.air4 {
+background: url('../assets/waves/wave4.png');
+animation: wave2 5s linear infinite;
+z-index: 997;
+/* opacity: 0.5; */
+opacity: 1;
+animation-delay: -5s;
+bottom: 30px;
+}
+
+.air5 {
+background: url('../assets/waves/wave5.png');
+animation: wave 40s linear infinite;
+z-index: 996;
+/* opacity: 0.3; */
+opacity:1;
+animation-delay: -3s;
+bottom: 40px;
+}
+
+.air6 {
+background: url('../assets/waves/wave6.png');
+animation: wave2 25s linear infinite;
+z-index: 995;
+opacity: 1;
+animation-delay: -6s;
+bottom: 50px;
+}
+
+@keyframes wave {
+0% {
+    background-position-x: 0px;
+}
+100% {
+    background-position-x: 1000px;
+}
+}
+
+@keyframes wave2 {
+0% {
+    background-position-x: 0px;
+}
+100% {
+    background-position-x: -1000px;
+}
+}

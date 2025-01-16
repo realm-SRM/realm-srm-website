@@ -1,9 +1,9 @@
 import Contact from './sections/Contact'
 import React, { useState, useEffect } from 'react';
 import Mainlogo from '../assets/realm.svg';
-import Waves from '../assets/Group 7.png';
 import AboutUs from './sections/AboutUs';
 import Domains from './Sections/Domains';
+import Wave from './Wave';
 
 const Home = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -38,14 +38,7 @@ const Home = () => {
     <div className=" bg-[#1E1F36] overflow-hidden relative">
      
       <div className="sticky top-0 h-screen flex flex-col justify-end items-center">
-        
-        <img
-          src={Waves}
-          alt="Waves Illustration"
-          className="absolute bottom-[-77px] w-full z-20"
-        />
-
-       
+              
         <div
           className="absolute top-[15%] transform -translate-x-1/2 left-1/2"
           style={{
@@ -65,6 +58,7 @@ const Home = () => {
           </span>
         </div>
       </div>
+      <Wave/>
     </div>
     <AboutUs/>
     <Domains/>

@@ -1,12 +1,10 @@
 from flask import Blueprint, jsonify, request
-from email.message import EmailMessage
-import ssl
-import smtplib
 from dotenv import load_dotenv
 import os
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
+from google.auth.transport.requests import Request
 from email.mime.text import MIMEText
 import base64
 
@@ -17,63 +15,67 @@ SCOPES = ['https://www.googleapis.com/auth/gmail.send']
 script_dir = os.path.dirname(os.path.abspath(__file__))
 credentials_path = os.path.join(script_dir, 'credentials.json')
 
-email_sender = os.getenv('email')
+email_sender = os.getenv('EMAIL')
 email_password = os.getenv('PASSKEY')
+email_reciever = os.getenv('OFFICIAL_EMAIL')
 
 contact_routes = Blueprint('contact_routes', __name__)
 
 @contact_routes.route('/contact', methods=['POST'])
 def api_contact():
-    if request.method == "POST":
+    data = request.json
 
-        data = request.json
+    firstname = data.get("firstname")
+    lastname = data.get("lastname")
+    mail_id = data.get("mail_id")
+    phone_no = data.get("phone_no")
+    text = data.get("text")
 
-        firstname = data.get("firstname")
-        lastname = data.get("lastname")
-        mail_id = data.get("mail_id")
-        phone_no = data.get("phone_no")
-        text = data.get("text")
+    if not all([firstname, lastname, mail_id, phone_no, text]):
+        return jsonify({"message":"Missing Fields"}), 400
 
-        if not all([firstname, lastname, mail_id, phone_no, text]):
-            return jsonify({"message":"Missing Fields"}), 400
+    service = authenticate_gmail()
+    email_status = send_email(
+        service,
+        sender=email_sender,
+        to=email_reciever,
+        subject='Contact from Website',
+        body=f"""
+Name: {firstname} {lastname}
+Email: {mail_id}
+Phone: {phone_no}
+Message: {text}
+"""
+    )
+    print(email_status)
+    if email_status:
+        return jsonify({"message": "Contact Form Submitted"}), 200
+    else:
+        return jsonify({"message": "Failed to submit contact form!"}), 503
 
-        service = authenticate_gmail()
-        email_status = send_email(
-            service,
-            sender='aitheprince120@gmail.com',
-            to='dt4025@gmail.com',
-            subject='Contact Us',
-            body=f"{mail_id} {firstname} {lastname} {phone_no} {text}"
-        )
+    # reciever = "dt4025@srmist.edu.in"
 
-        if email_status:
-            return jsonify({"message": "Contact Form Submitted"}), 200
-        else:
-            return jsonify({"message": "Failed to submit contact form!"}), 503
+    # subject = 'Contact Us'
 
-        # reciever = "dt4025@srmist.edu.in"
+    # body = mail_id + ' ' +  firstname + lastname + ' ' + phone_no  + ' ' + text
 
-        # subject = 'Contact Us'
+    # em = EmailMessage()
+    # em['From'] = email_sender
+    # em['To'] = reciever
+    # em['Subject'] = subject
+    # em.set_content(body)
 
-        # body = mail_id + ' ' +  firstname + lastname + ' ' + phone_no  + ' ' + text
+    # context = ssl.create_default_context()
 
-        # em = EmailMessage()
-        # em['From'] = email_sender
-        # em['To'] = reciever
-        # em['Subject'] = subject
-        # em.set_content(body)
+    # with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp :
+    #     smtp.login(email_sender, email_password)
+    #     smtp.sendmail(email_sender, reciever, em.as_string())
 
-        # context = ssl.create_default_context()
-
-        # with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp :
-        #     smtp.login(email_sender, email_password)
-        #     smtp.sendmail(email_sender, reciever, em.as_string())
-
-        # if all([firstname, lastname, mail_id, phone_no, text]):
-        #     return jsonify({"message": "Contact form submitted!"}), 200
-        # else:
-        #     return jsonify({"message": "Missing required fields!"}), 400
-        
+    # if all([firstname, lastname, mail_id, phone_no, text]):
+    #     return jsonify({"message": "Contact form submitted!"}), 200
+    # else:
+    #     return jsonify({"message": "Missing required fields!"}), 400
+    
 
 def authenticate_gmail():
     creds = None
@@ -107,6 +109,7 @@ def send_email(service, sender, to, subject, body):
 
     try:
         sent_message = service.users().messages().send(userId='me', body=message_body).execute()
+        print(sent_message)
         if sent_message.get('id'):
             return True
         else:
