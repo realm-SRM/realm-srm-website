@@ -1,10 +1,9 @@
 from flask import Blueprint, jsonify, request
 from email.message import EmailMessage
-import ssl
-import smtplib
 from dotenv import load_dotenv
 import os
 from google.oauth2.credentials import Credentials
+from google.auth.transport.requests import Request
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from email.mime.text import MIMEText
@@ -16,9 +15,6 @@ SCOPES = ['https://www.googleapis.com/auth/gmail.send']
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 credentials_path = os.path.join(script_dir, 'credentials.json')
-
-email_sender = os.getenv('email')
-email_password = os.getenv('PASSKEY')
 
 contact_routes = Blueprint('contact_routes', __name__)
 
