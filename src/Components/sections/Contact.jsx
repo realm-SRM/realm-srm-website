@@ -1,8 +1,11 @@
 import { useState } from "react";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import XIcon from '@mui/icons-material/X';
-import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
+import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import EmailIcon from "@mui/icons-material/Email";
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 
 export default function Contact(){
 
@@ -110,10 +113,13 @@ export default function Contact(){
       </style>
     </div>
                 <div className="flex flex-row justify-center gap-5 my-8">
-                    <a href="http://github.com/realm-SRM" target="_blank"><button><GitHubIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
-                    <a href="http://github.com/realm-SRM" target="_blank"><button><XIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
-                    <a href="http://github.com/realm-SRM" target="_blank"><button><FacebookOutlinedIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
-                    <a href="http://github.com/realm-SRM" target="_blank"><button><InstagramIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
+                    <a href="http://github.com/realm-SRM" target="_blank" className="hover:brightness-150 transition"><button><GitHubIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
+                    <a href="http://x.com" target="_blank" className="hover:brightness-150 transition"><button><XIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
+                    <a href="http://facebook.com" target="_blank" className="hover:brightness-150 transition"><button><FacebookIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
+                    <a href="http://instagram.com" target="_blank" className="hover:brightness-150 transition"><button><InstagramIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
+                    <a href="http://linkedin.com" target="_blank" className="hover:brightness-150 transition"><button><LinkedInIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
+                    <a href="mailto:srmrealm@gmail.com" target="_blank" className="hover:brightness-150 transition"><button><EmailIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
+                    <a href="tel:9599714677" target="_blank" className="hover:brightness-150 transition"><button><LocalPhoneIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
                 </div>
             </div>
 

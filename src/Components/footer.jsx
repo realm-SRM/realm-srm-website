@@ -1,9 +1,12 @@
 import React from "react";
 import logo from "../assets/image.png";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/Twitter";
+import XIcon from '@mui/icons-material/X';
 import InstagramIcon from "@mui/icons-material/Instagram";
 import EmailIcon from "@mui/icons-material/Email";
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import FacebookIcon from '@mui/icons-material/Facebook';
 import Waves from "../assets/Group 7.png";
 import { Link } from "react-router-dom";
 
@@ -80,16 +83,25 @@ const Footer = () => {
           <div className="flex px-40 space-x-2 text-sm mb-4">
             <span>Contact Us | </span>
             <a href="#" className="hover:text-gray-300">
-              <LinkedInIcon />
+              <GitHubIcon />
             </a>
             <a href="#" className="hover:text-gray-300">
-              <TwitterIcon />
+              <XIcon />
+            </a>
+            <a href="#" className="hover:text-gray-300">
+              <FacebookIcon />
             </a>
             <a href="#" className="hover:text-gray-300">
               <InstagramIcon />
             </a>
             <a href="#" className="hover:text-gray-300">
+              <LinkedInIcon />
+            </a>
+            <a href="#" className="hover:text-gray-300">
               <EmailIcon />
+            </a>
+            <a href="#" className="hover:text-gray-300">
+              <LocalPhoneIcon />
             </a>
           </div>
           <p className="text-center text-sm">&copy; 2025 Realm. All rights reserved</p>
