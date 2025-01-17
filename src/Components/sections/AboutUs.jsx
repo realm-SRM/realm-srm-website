@@ -5,10 +5,10 @@ import Shivansh from '../../assets/shivanshBhaiya.jpg';
 const AboutUs = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-[#38457C] px-4">
-      <div className="flex flex-wrap lg:flex-nowrap w-full max-w-[1069px] bg-[#19203e] rounded-lg p-6 md:p-8 shadow-lg">
+      <div className="flex flex-wrap lg:flex-nowrap w-full max-w-[1009px] bg-[#19203e] rounded-lg p-6 md:p-8 shadow-lg">
         <div className="w-full lg:w-1/2 flex justify-center items-center">
         
-          <div className="w-full h-[200px] sm:h-[300px] lg:h-full border-2 border-gray-400 relative">
+          <div className="w-full h-[200px] sm:h-[300px] lg:h-[90%] border-2 border-gray-400 relative">
           <img 
         className="h-full w-full"
         src={Shivansh} alt="BhaiyaJI" />
