@@ -4,6 +4,7 @@ import logo from "../assets/image.png";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,18 +28,35 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
-      
+        {/* Logo Section */}
         <div className="flex items-center">
           <img src={logo} alt="Logo" className="w-8 h-8 rounded-full" />
           <h1 className="text-xl font-bold text-[#FFDCC1] ml-2">Realm SRM</h1>
         </div>
 
-        
-        <ul className="flex space-x-6 text-[#FFDCC1]">
+        {/* Burger Icon */}
+        <button
+          className="lg:hidden text-[#FFDCC1] focus:outline-none"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <div className="w-6 h-1 bg-[#FFDCC1] mb-1 rounded transition-all"></div>
+          <div className="w-6 h-1 bg-[#FFDCC1] mb-1 rounded transition-all"></div>
+          <div className="w-6 h-1 bg-[#FFDCC1] rounded transition-all"></div>
+        </button>
+
+        {/* Menu */}
+        <ul
+          className={`absolute top-[100%] left-0 w-full bg-[#1c1b29] lg:static lg:flex lg:space-x-6 lg:bg-transparent lg:w-auto lg:translate-x-0 lg:opacity-100 lg:py-0 py-4 text-center text-[#FFDCC1] transition-all duration-300 ${
+            isMenuOpen
+              ? "translate-x-0 opacity-100"
+              : "translate-x-full opacity-0"
+          }`}
+        >
           <li>
             <Link
               to="/"
-              className="hover:text-pink-500 transition duration-300"
+              className="block py-2 lg:inline-block lg:py-0 hover:text-pink-500 transition duration-300"
+              onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
@@ -46,7 +64,8 @@ const Navbar = () => {
           <li>
             <Link
               to="/about"
-              className="hover:text-pink-500 transition duration-300"
+              className="block py-2 lg:inline-block lg:py-0 hover:text-pink-500 transition duration-300"
+              onClick={() => setIsMenuOpen(false)}
             >
               Our Club
             </Link>
@@ -54,7 +73,8 @@ const Navbar = () => {
           <li>
             <Link
               to="/events"
-              className="hover:text-pink-500 transition duration-300"
+              className="block py-2 lg:inline-block lg:py-0 hover:text-pink-500 transition duration-300"
+              onClick={() => setIsMenuOpen(false)}
             >
               Events
             </Link>
@@ -62,7 +82,8 @@ const Navbar = () => {
           <li>
             <Link
               to="/team"
-              className="hover:text-pink-500 transition duration-300"
+              className="block py-2 lg:inline-block lg:py-0 hover:text-pink-500 transition duration-300"
+              onClick={() => setIsMenuOpen(false)}
             >
               Team
             </Link>
@@ -70,7 +91,8 @@ const Navbar = () => {
           <li>
             <Link
               to="/join-us"
-              className="hover:text-pink-500 transition duration-300"
+              className="block py-2 lg:inline-block lg:py-0 hover:text-pink-500 transition duration-300"
+              onClick={() => setIsMenuOpen(false)}
             >
               Join Us
             </Link>
@@ -78,7 +100,8 @@ const Navbar = () => {
           <li>
             <Link
               to="/accelerators"
-              className="hover:text-pink-500 transition duration-300"
+              className="block py-2 lg:inline-block lg:py-0 hover:text-pink-500 transition duration-300"
+              onClick={() => setIsMenuOpen(false)}
             >
               Accelerators
             </Link>
