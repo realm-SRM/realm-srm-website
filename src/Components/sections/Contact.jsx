@@ -1,8 +1,11 @@
 import { useState } from "react";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import XIcon from '@mui/icons-material/X';
-import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
+import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import EmailIcon from "@mui/icons-material/Email";
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 
 export default function Contact(){
 
@@ -66,66 +69,46 @@ export default function Contact(){
     return(
         <div className="contact-form overflow-x-hidden bg-[#141930] pb-10">
 
-        <p className="text-6xl font-bold py-10 text-[#FFDCC1] flex justify-center mb-6 ">Contact Us</p>
+        <p className="text-4xl lg:text-6xl font-bold py-10 text-[#FFDCC1] flex justify-center mb-0 lg:mb-6 ">Contact Us</p>
             
-        <div className="h-1 border-t-0 border-b-[1px] border-red-400 w-10/12 ml-32 "></div>
+        <div className="h-1 border-t-0 border-b-[1px] border-red-400 w-10/12 ml-8 lg:ml-32 "></div>
         
-        <div className="flex flex-row justify-end gap-16 py-10">
-            <div>
-            <div className="mapouter" style={{ position: 'relative', textAlign: 'right', width: '100%', height: '325px' }}>
-      <div className="gmap_canvas" style={{ overflow: 'hidden', background: 'none', width: '100%', height: '325px' }}>
+        <div className="flex flex-col justify-center lg:flex-row lg:justify-end gap-24 py-5 lg:py-10">
+        <div>
+            <div className="mapouter flex justify-center relative text-right w-full h-[325px]">
+      <div className="gmap_canvas overflow-hidden bg-none w-1/2 lg:w-full h-[325px]">
         <iframe
-          className="gmap_iframe"
+          className="gmap_iframe h-[250px] lg:h-[325px]"
           width="100%"
           frameBorder="0"
           scrolling="no"
           marginHeight="0"
           marginWidth="0"
           src="https://maps.google.com/maps?width=300&amp;height=325&amp;hl=en&amp;q=UB%20building%20srm%20university&amp;t=k&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-          style={{ height: '325px' }}
           title="Google Map Embed"
         />
-        <a href="https://sprunkiplay.com/" rel="nofollow">Sprunki Game</a>
       </div>
-      <style>
-        {`
-          .mapouter {
-            position: relative;
-            text-align: right;
-            width: 100%;
-            height: 325px;
-          }
-
-          .gmap_canvas {
-            overflow: hidden;
-            background: none !important;
-            width: 100%;
-            height: 325px;
-          }
-
-          .gmap_iframe {
-            height: 325px !important;
-          }
-        `}
-      </style>
     </div>
-                <div className="flex flex-row justify-center gap-5 my-8">
-                    <a href="http://github.com/realm-SRM" target="_blank"><button><GitHubIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
-                    <a href="http://github.com/realm-SRM" target="_blank"><button><XIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
-                    <a href="http://github.com/realm-SRM" target="_blank"><button><FacebookOutlinedIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
-                    <a href="http://github.com/realm-SRM" target="_blank"><button><InstagramIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
+                <div className="flex flex-row justify-center gap-5 my-0 lg:my-8">
+                    <a href="http://github.com/realm-SRM" target="_blank" className="hover:brightness-150 transition"><button><GitHubIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
+                    <a href="http://x.com" target="_blank" className="hover:brightness-150 transition"><button><XIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
+                    <a href="http://facebook.com" target="_blank" className="hover:brightness-150 transition"><button><FacebookIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
+                    <a href="http://instagram.com" target="_blank" className="hover:brightness-150 transition"><button><InstagramIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
+                    <a href="http://linkedin.com" target="_blank" className="hover:brightness-150 transition"><button><LinkedInIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
+                    <a href="mailto:srmrealm@gmail.com" target="_blank" className="hover:brightness-150 transition"><button><EmailIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
+                    <a href="tel:9599714677" target="_blank" className="hover:brightness-150 transition"><button><LocalPhoneIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
                 </div>
             </div>
 
-            <div className="w-1 h-auto border-l-0 border-r-[1px] border-red-400 "></div>
+            <div className="w-1 h-auto border-l-0 border-r-[1px] border-red-400 hidden lg:block "></div>
 
-            <div className="pr-20">
+            <div className="pr-5 pl-5 lg:pl-0 lg:pr-20">
                 <form onSubmit={handleSubmit}>
                     <p className="text-[#FFDCC1] w-full font-bold text-3xl text-left mb-6">Leave Us a Message</p>
-                    <div className="flex flex-row gap-16 mb-6">
-                        <div>
+                    <div className="block lg:flex lg:flex-row gap-16 mb-0 lg:mb-6">
+                        <div className="mb-3 lg:mb-0">
                         <input
-                            className="bg-[#141930] border border-[#59569E] text-xl font-bold rounded-md px-3 py-1 w-80 text-gray-300 placeholder-slate-700 "
+                            className="bg-[#141930] border border-[#59569E] text-xl font-bold rounded-md px-3 py-1 w-full text-gray-300 placeholder-slate-700 "
                             type="text"
                             id="firstname"
                             name="firstname"
@@ -136,9 +119,9 @@ export default function Contact(){
                         />
                         </div>
 
-                        <div>
+                        <div className="mb-3 lg:mb-0">
                         <input
-                            className="bg-[#141930] border border-[#59569E] text-xl font-bold rounded-md px-3 py-1 w-80 text-gray-300 placeholder-slate-700 "
+                            className="bg-[#141930] border border-[#59569E] text-xl font-bold rounded-md px-3 py-1 w-full text-gray-300 placeholder-slate-700 "
                             type="text"
                             id="lastname"
                             name="lastname"
@@ -150,10 +133,10 @@ export default function Contact(){
                         </div>
                     </div>
 
-                    <div className="flex flex-row gap-16 mb-6">
-                        <div>
+                    <div className="block lg:flex lg:flex-row gap-16 mb-0 lg:mb-6">
+                        <div className="mb-3 lg:mb-0">
                         <input
-                            className="bg-[#141930] border border-[#59569E] text-xl font-bold rounded-md px-3 py-1 w-80 text-gray-300 placeholder-slate-700 "
+                            className="bg-[#141930] border border-[#59569E] text-xl font-bold rounded-md px-3 py-1 w-full text-gray-300 placeholder-slate-700 "
                             type="email"
                             id="email"
                             name="email"
@@ -164,9 +147,9 @@ export default function Contact(){
                         />
                         </div>
 
-                        <div>
+                        <div className="mb-3 lg:mb-0">
                         <input
-                            className="bg-[#141930] border border-[#59569E] text-xl font-bold rounded-md px-3 py-1 w-80 text-gray-300 placeholder-slate-700 "
+                            className="bg-[#141930] border border-[#59569E] text-xl font-bold rounded-md px-3 py-1 w-full text-gray-300 placeholder-slate-700 "
                             type="text"
                             id="phone"
                             name="phone"
@@ -203,7 +186,7 @@ export default function Contact(){
 
         </div>
 
-        <div className="h-1 border-t-0 border-b-[1px] border-red-400 w-10/12 ml-32 "></div>
+        <div className="h-1 border-t-0 border-b-[1px] border-red-400 w-10/12 ml-8 lg:ml-32 "></div>
 
         </div>
     );
