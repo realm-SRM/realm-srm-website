@@ -9,7 +9,7 @@ members_routes = Blueprint('members_routes', __name__)
 
 SERVICE_ACCOUNT_FILE = 'client_secret.json'
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
-SPREADSHEET_ID = os.getenv('SPREADSHEET_ID')
+SPREADSHEET_ID = os.getenv('SPREADSHEET_ID_MEMBERS')
 SHEET_NAME = os.getenv('SHEET_NAME')
 
 @members_routes.route('/members', methods=['GET'])
