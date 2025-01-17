@@ -4,3 +4,5 @@ __pycahce__/
 *.pyc
 
 .env
+
+credentials.json
