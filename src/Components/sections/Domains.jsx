@@ -41,41 +41,60 @@ const Domains = () => {
     },
   ];
 
-  const barVariants = (direction) => ({
-    hidden: {
-      x: direction === 'left' ? '-150%' : '150%',
-      opacity: 0,
-    },
-    visible: {
-      x: direction === 'left' ? '-200px' : '200px',
-      opacity: 1,
-      transition: { type: 'spring', stiffness: 50, damping: 15 },
-    },
-  });
+  const barVariants = (direction, isSmallScreen) => {
+    if (isSmallScreen) {
+      return {
+        hidden: {
+          x: direction === 'left' ? '-50%' : '50%',
+          opacity: 0,
+        },
+        visible: {
+          x: direction === 'left' ? '-30%' : '30%',
+          opacity: 1,
+          transition: { type: 'spring', stiffness: 50, damping: 15 },
+        },
+      };
+    }
+
+    // Default (original animation for larger screens)
+    return {
+      hidden: {
+        x: direction === 'left' ? '-100%' : '100%',
+        opacity: 0,
+      },
+      visible: {
+        x: direction === 'left' ? '-700px' : '300px',
+        opacity: 1,
+        transition: { type: 'spring', stiffness: 50, damping: 15 },
+      },
+    };
+  };
 
   const { ref, inView } = useInView({
     threshold: 0.3,
     triggerOnce: false,
   });
 
+
+  const isSmallScreen = window.matchMedia('(max-width: 768px)').matches;
+
   return (
     <div className="bg-[#141930] min-h-screen flex items-center justify-center px-5" ref={ref}>
-      {/* Larger Devices */}
-      <div className="hidden lg:block relative w-full max-w-[60%] p-6 space-y-8">
+      <div className="relative w-full max-w-[60%] space-y-8 p-4">
         <h1 className="text-4xl font-bold text-[#FFDCC1] text-center mb-6">Domains</h1>
-        <div className="border-2 border-[#A15766] rounded-xl overflow-hidden p-6">
-          <div className="space-y-6 mx-auto">
+        <div className="border-2 border-[#A15766] rounded-xl p-6 overflow-hidden">
+          <div className="space-y-8 mx-auto">
             {barData.map((bar, index) => (
               <motion.div
                 key={index}
                 initial="hidden"
                 animate={inView ? 'visible' : 'hidden'}
-                variants={barVariants(bar.direction)}
-                className={`relative w-[90%] h-40 ${bar.color} flex items-center rounded-full overflow-hidden mx-auto px-6`}
+                variants={barVariants(bar.direction, isSmallScreen)}
+                className={`relative w-[80vw] h-32 ${bar.color} flex items-center rounded-full overflow-hidden mx-auto`}
               >
                 {/* Circle */}
                 <div
-                  className={`absolute w-36 h-36 rounded-full ${bar.circleColor} opacity-80`}
+                  className={`absolute w-32 h-32 rounded-full ${lightenColor(bar.color)} opacity-80`}
                   style={{
                     [bar.direction === 'left' ? 'right' : 'left']: '10px',
                     top: '50%',
