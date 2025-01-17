@@ -11,14 +11,17 @@ import base64
 
 load_dotenv()
 
-SCOPES = ['https://www.googleapis.com/auth/gmail.send']
+SCOPES = ['https://www.googleapis.com/auth/gmail.send', 'https://www.googleapis.com/auth/spreadsheets']
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
-credentials_path = os.path.join(script_dir, 'credentials.json')
+root_dir = os.path.abspath(os.path.join(script_dir, '../../'))
+credentials_path = os.path.join(root_dir, 'credentials.json')
 
 email_sender = os.getenv('EMAIL')
 email_password = os.getenv('PASSKEY')
 email_reciever = os.getenv('OFFICIAL_EMAIL')
+spreadsheet_id = os.getenv('SPREADSHEET_ID_CONTACT')
+sheet_range = 'Sheet1!A1'
 
 contact_routes = Blueprint('contact_routes', __name__)
 
@@ -48,11 +51,21 @@ Phone: {phone_no}
 Message: {text}
 """
     )
+
+    service_sheets = authenticate_sheets()
+    append_status = append_to_sheet(service_sheets, spreadsheet_id, sheet_range, [firstname, lastname, mail_id, phone_no, text])
+
     print(email_status)
     if email_status:
         return jsonify({"message": "Contact Form Submitted"}), 200
     else:
         return jsonify({"message": "Failed to submit contact form!"}), 503
+    
+
+    # if append_status:
+    #     return jsonify({"message": "Contact Form Submitted and Data Added to Google Sheets"}), 200
+    # else:
+    #     return jsonify({"message": "Failed to append to Google Sheets!"}), 503
 
     # reciever = "dt4025@srmist.edu.in"
 
@@ -118,7 +131,46 @@ def send_email(service, sender, to, subject, body):
     except Exception as e:
         return False
     
+def authenticate_sheets():
+    creds = None
 
+    if os.path.exists('token_sheets.json'):
+        creds = Credentials.from_authorized_user_file('token_sheets.json', SCOPES)
+
+    if not creds or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+        else:
+            flow = InstalledAppFlow.from_client_secrets_file(
+                credentials_path, SCOPES
+            )
+            creds = flow.run_local_server(port=8080)
+
+        with open('token_sheets.json', 'w') as token:
+            token.write(creds.to_json())
+
+    service = build('sheets', 'v4', credentials=creds)
+    return service
+
+def append_to_sheet(service, spreadsheet_id, range_name, values):
+    body = {
+        'values': [values]
+    }
+    
+    try:
+        result = service.spreadsheets().values().append(
+            spreadsheetId=spreadsheet_id,
+            range=range_name,
+            valueInputOption="RAW",
+            body=body
+        ).execute()
+        if result.get('updates') and result['updates'].get('updatedCells'):
+            return True
+        else:
+            return False
+    except Exception as e:
+        print(f"Error appending to Google Sheets: {e}")
+        return False
 
 '''
 if success: return the above response with a 200 status code

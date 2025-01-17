@@ -33,7 +33,7 @@ const Domains = () => {
   };
 
   return (
-    <div className="bg-gray-900 min-h-screen flex items-center justify-center px-5">
+    <div className="bg-[#141930] min-h-screen flex items-center justify-center px-5">
       <div className="relative w-full max-w-[calc(100%-40px)] space-y-12 p-10">
       <h1 className="text-4xl font-bold text-[#FFDCC1] text-center mb-10">Domains</h1>
         <div className="border-2 border-[#F05091] rounded-xl p-5 overflow-hidden">
