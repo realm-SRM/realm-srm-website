@@ -105,6 +105,8 @@ const Footer = () => {
             </a>
           </div>
           <p className="text-center text-sm">&copy; 2025 Realm. All rights reserved</p>
+          <p className="text-center text-sm">Made by: <a href="https://github.com/Aakarsh-Kumar" target="_blank">Aakarsh</a>, <a href="https://github.com/DevanshuTripathi" target="_blank">Devanshu</a>, <a href="https://github.com/Priyanshu2608" target="_blank">Priyanshu</a>, <a href="https://github.com/jayeshmehra344" target="_blank">Jayesh</a>, <a href="https://github.com/DevanshuTripathi" target="_blank">Devanshu</a>, <a href="https://github.com/DevanshuTripathi" target="_blank">Devanshu</a>, <a href="https://github.com/DevanshuTripathi" target="_blank">Devanshu</a>, <a href="https://github.com/DevanshuTripathi" target="_blank">Devanshu</a>
+          </p>
         </div>
       </footer>
     </div>
