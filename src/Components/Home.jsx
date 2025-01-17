@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Mainlogo from '../assets/realm.svg';
 import AboutUs from './sections/AboutUs';
 import Domains from './sections/Domains';
-import Wave from './Wave';
+import Wave from './Waves';
 
 const Home = () => {
   const [scrollY, setScrollY] = useState(0);
