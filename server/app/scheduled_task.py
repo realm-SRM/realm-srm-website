@@ -31,45 +31,32 @@ class ScheduledTask:
         SHEET_NAME = getenv('SHEET_NAME')
         credentials = Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
         service = build('sheets', 'v4', credentials=credentials)
-        # try:
-        sheet = service.spreadsheets()
-        result = sheet.values().get(spreadsheetId=SPREADSHEET_ID, range=SHEET_NAME).execute()
-        data = result.get('values', [])
-        headers = data[0]
-        rows = data[1:]
+        try:
+            sheet = service.spreadsheets()
+            result = sheet.values().get(spreadsheetId=SPREADSHEET_ID, range=SHEET_NAME).execute()
+            data = result.get('values', [])
+            headers = data[0]
+            rows = data[1:]
 
-        # Initialize result dictionary
-        result = {
-            "President": [],
-            "Director": [],
-            "Project Lead": [],
-            "Tech Lead": [],
-            "Secretary": [],
-            "Web Developer": [],
-            "App Developer": [],
-            "AI/ML Developer": [],
-            "UI/UX Designer": [],
-            "RnD": [],
-            "Events": []
-        }
-        for row in rows:
-            mapped_data = dict(zip(headers, row))
-            designation = mapped_data['Designation']
+            result = {
+                "President": [],
+                "Director": [],
+                "Project Lead": [],
+                "Tech Lead": [],
+                "Secretary": [],
+                "Web Developer": [],
+                "App Developer": [],
+                "AI/ML Developer": [],
+                "UI/UX Designer": [],
+                "RnD": [],
+                "Events": []
+            }
+            for row in rows:
+                mapped_data = dict(zip(headers, row))
+                designation = mapped_data['Designation']
 
-            # Classify based on designation or domain
-            if designation in ["President", "Director", "Project Lead", "Tech Lead", "Secretary"]:
-                result[designation].append({
-                    "name": mapped_data['Name'],
-                    "tagline": mapped_data['Tagline'],
-                    "image": mapped_data['Profile Picture URL'],
-                    "insta": mapped_data['Instagram Profile URL'],
-                    "github": mapped_data['Github Profile URL'],
-                    "LinkedIn": mapped_data['Linkedin Profile URL']
-                })
-            else:
-                domain = mapped_data['Domain']
-                if domain in result:
-                    result[domain].append({
+                if designation in ["President", "Director", "Project Lead", "Tech Lead", "Secretary"]:
+                    result[designation].append({
                         "name": mapped_data['Name'],
                         "tagline": mapped_data['Tagline'],
                         "image": mapped_data['Profile Picture URL'],
@@ -77,13 +64,21 @@ class ScheduledTask:
                         "github": mapped_data['Github Profile URL'],
                         "LinkedIn": mapped_data['Linkedin Profile URL']
                     })
+                else:
+                    domain = mapped_data['Domain']
+                    if domain in result:
+                        result[domain].append({
+                            "name": mapped_data['Name'],
+                            "tagline": mapped_data['Tagline'],
+                            "image": mapped_data['Profile Picture URL'],
+                            "insta": mapped_data['Instagram Profile URL'],
+                            "github": mapped_data['Github Profile URL'],
+                            "LinkedIn": mapped_data['Linkedin Profile URL']
+                        })
 
-        # Output the result
-        print(result)
-        with open('members.json', 'w') as f:
-            json.dump(result, f, indent=4)
+            with open('members.json', 'w') as f:
+                json.dump(result, f, indent=4)
+            return True
 
-        # except Exception as e:
-        #     print("Error: ",e)
-        #     print(e)
-        #     # return {"error": str(e)}, 500
+        except Exception as e:
+            return json.dumps({"error": str(e)}), 500
