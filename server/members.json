@@ -1,51 +1,73 @@
 {
-  "President": [
-    {
-      "name": "Raghav Sharma",
-      "domain": "AI/ML Developer",
-      "tagline": "English or Spanish",
-      "image": "https://drive.google.com/file/d/1qEZbzDYlsCHbDDPX1NGl7QVPEB6nYlj7/view?usp=drive_link",
-      "insta": "",
-      "github": "https://github.com/Raghav-2611",
-      "LinkedIn": "www.linkedin.com/in/raghav-here"
-    },
-    {
-      "name": "Raghav Shivansh",
-      "domain": "APP Developer",
-      "tagline": "English or Spanish",
-      "image": "https://drive.google.com/file/d/1qEZbzDYlsCHbDDPX1NGl7QVPEB6nYlj7/view?usp=drive_link",
-      "insta": "",
-      "github": "https://github.com/Raghav-2611",
-      "LinkedIn": "www.linkedin.com/in/raghav-here"
-    }
-  ],
-  "SDE-2": [
-    {
-      "name": "Aakarsh",
-      "domain": "Web Developer",
-      "tagline": "English or Hindi",
-      "image": "https://drive.google.com/file/d/1qEZbzDYlsCHbDDPX1NGl7QVPEB6nYlj7/view?usp=drive_link",
-      "insta": "",
-      "github": "https://github.com/Raghav-2611",
-      "LinkedIn": "www.linkedin.com/in/aakarsh"
-    },
-    {
-      "name": "Mohit",
-      "domain": "AI/ML Developer",
-      "tagline": "Shyaam",
-      "image": "https://drive.google.com/file/d/1qEZbzDYlsCHbDDPX1NGl7QVPEB6nYlj7/view?usp=drive_link",
-      "insta": "",
-      "github": "https://github.com/Raghav-2611",
-      "LinkedIn": "www.linkedin.com/in/raghav-here"
-    },
-    {
-      "name": "DON",
-      "domain": "AI/ML Developer",
-      "tagline": "English or Spanish",
-      "image": "https://drive.google.com/file/d/1qEZbzDYlsCHbDDPX1NGl7QVPEB6nYlj7/view?usp=drive_link",
-      "insta": "",
-      "github": "https://github.com/Raghav-2611",
-      "LinkedIn": "www.linkedin.com/in/raghav-here"
-    }
-  ]
+    "President": [
+        {
+            "name": "Raghav Sharma",
+            "tagline": "English or Spanish",
+            "image": "https://drive.google.com/file/d/1qEZbzDYlsCHbDDPX1NGl7QVPEB6nYlj7/view?usp=drive_link",
+            "insta": "",
+            "github": "https://github.com/Raghav-2611",
+            "LinkedIn": "www.linkedin.com/in/raghav-here"
+        },
+        {
+            "name": "Raghav Shivansh",
+            "tagline": "English or Spanish",
+            "image": "https://drive.google.com/file/d/1qEZbzDYlsCHbDDPX1NGl7QVPEB6nYlj7/view?usp=drive_link",
+            "insta": "",
+            "github": "https://github.com/Raghav-2611",
+            "LinkedIn": "www.linkedin.com/in/raghav-here"
+        }
+    ],
+    "Director": [],
+    "Project Lead": [],
+    "Tech Lead": [],
+    "Secretary": [],
+    "Web Developer": [
+        {
+            "name": "Aakarsh",
+            "tagline": "English or Hindi",
+            "image": "https://drive.google.com/file/d/1qEZbzDYlsCHbDDPX1NGl7QVPEB6nYlj7/view?usp=drive_link",
+            "insta": "",
+            "github": "https://github.com/Raghav-2611",
+            "LinkedIn": "www.linkedin.com/in/aakarsh"
+        }
+    ],
+    "App Developer": [
+        {
+            "name": "Raghav Shivansh",
+            "tagline": "English or Spanish",
+            "image": "https://drive.google.com/file/d/1qEZbzDYlsCHbDDPX1NGl7QVPEB6nYlj7/view?usp=drive_link",
+            "insta": "",
+            "github": "https://github.com/Raghav-2611",
+            "LinkedIn": "www.linkedin.com/in/raghav-here"
+        },
+        {
+            "name": "Raghav Shivansh",
+            "tagline": "English or Spanish",
+            "image": "https://drive.google.com/file/d/1qEZbzDYlsCHbDDPX1NGl7QVPEB6nYlj7/view?usp=drive_link",
+            "insta": "",
+            "github": "https://github.com/Raghav-2611",
+            "LinkedIn": "www.linkedin.com/in/raghav-here"
+        }
+    ],
+    "AI/ML Developer": [
+        {
+            "name": "Mohit",
+            "tagline": "Shyaam",
+            "image": "https://drive.google.com/file/d/1qEZbzDYlsCHbDDPX1NGl7QVPEB6nYlj7/view?usp=drive_link",
+            "insta": "",
+            "github": "https://github.com/Raghav-2611",
+            "LinkedIn": "www.linkedin.com/in/raghav-here"
+        },
+        {
+            "name": "DON",
+            "tagline": "English or Spanish",
+            "image": "https://drive.google.com/file/d/1qEZbzDYlsCHbDDPX1NGl7QVPEB6nYlj7/view?usp=drive_link",
+            "insta": "",
+            "github": "https://github.com/Raghav-2611",
+            "LinkedIn": "www.linkedin.com/in/raghav-here"
+        }
+    ],
+    "UI/UX Designer": [],
+    "RnD": [],
+    "Events": []
 }

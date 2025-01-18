@@ -2,7 +2,7 @@
 venv/
 __pycahce__/
 *.pyc
-
 .env
-
 credentials.json
+client_secret.json
+members.json
