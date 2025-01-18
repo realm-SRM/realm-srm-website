@@ -31,7 +31,7 @@ const Navbar = () => {
         {/* Logo Section */}
         <div className="flex items-center">
           <img src={logo} alt="Logo" className="w-8 h-8 rounded-full" />
-          <h1 className="text-xl font-bold text-[#FFDCC1] ml-2">Realm SRM</h1>
+          <h1 className="text-xl font-bold text-[#FFDCC1] ml-2">realm SRM</h1>
         </div>
 
         {/* Burger Icon */}
