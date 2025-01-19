@@ -1,29 +1,27 @@
 import React from "react";
 import logo from "../assets/image.png";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import XIcon from '@mui/icons-material/X';
+import XIcon from "@mui/icons-material/X";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import EmailIcon from "@mui/icons-material/Email";
-import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import FacebookIcon from '@mui/icons-material/Facebook';
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import FacebookIcon from "@mui/icons-material/Facebook";
 import Waves from "../assets/Group 7.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <div className="bg-[#141930]">
-      {/* Waves Section */}
       <div className="relative">
         <img
           src={Waves}
           alt="Waves"
           className="w-full h-auto block"
-          style={{ marginBottom: "-50px", transform: "translateX(-2px)" }} // Moves the waves to the left
+          style={{ marginBottom: "-40px", transform: "translateX(-2px)" }}
         />
       </div>
 
-      {/* Footer Section */}
       <footer className="bg-[#38457C] text-gray-400 py-8 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start">
           <div className="flex-1 md:mr-auto">
@@ -31,7 +29,7 @@ const Footer = () => {
               <span>
                 <img src={logo} alt="logo" className="w-12 h-12" />
               </span>
-              <span>Realm</span>
+              <span>realm SRM</span>
             </h1>
             <p className="mt-3 text-sm leading-relaxed">
               SRM Institute of Science and Technology,
@@ -52,7 +50,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/about" className="hover:text-pink-500 transition duration-300">
-                  About Us
+                  Our Club
                 </Link>
               </li>
               <li>
@@ -79,9 +77,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-6 pt-4 text-left">
-          <div className="flex px-40 space-x-2 text-sm mb-4">
-            <span>Contact Us | </span>
+        <div className="mt-6 pt-4">
+          {/* Social Icons Section */}
+          <div className="flex justify-center lg:justify-start lg:px-40 space-x-4 text-sm mb-4 md:px-0">
             <a href="#" className="hover:text-gray-300">
               <GitHubIcon />
             </a>
@@ -105,7 +103,39 @@ const Footer = () => {
             </a>
           </div>
           <p className="text-center text-sm">&copy; 2025 Realm. All rights reserved</p>
-          <p className="text-center text-sm">Made by: <a href="https://github.com/Aakarsh-Kumar" target="_blank">Aakarsh</a>, <a href="https://github.com/DevanshuTripathi" target="_blank">Devanshu</a>, <a href="https://github.com/Priyanshu2608" target="_blank">Priyanshu</a>, <a href="https://github.com/jayeshmehra344" target="_blank">Jayesh</a>, <a href="https://github.com/DevanshuTripathi" target="_blank">Devanshu</a>, <a href="https://github.com/DevanshuTripathi" target="_blank">Devanshu</a>, <a href="https://github.com/DevanshuTripathi" target="_blank">Devanshu</a>, <a href="https://github.com/DevanshuTripathi" target="_blank">Devanshu</a>
+          <p className="text-center text-sm">
+            Made by:{" "}
+            <a href="https://github.com/Aakarsh-Kumar" target="_blank">
+              Aakarsh
+            </a>
+            ,{" "}
+            <a href="https://github.com/DevanshuTripathi" target="_blank">
+              Devanshu
+            </a>
+            ,{" "}
+            <a href="https://github.com/Priyanshu2608" target="_blank">
+              Priyanshu
+            </a>
+            ,{" "}
+            <a href="https://github.com/jayeshmehra344" target="_blank">
+              Jayesh
+            </a>
+            ,{" "}
+            <a href="https://github.com/DevanshuTripathi" target="_blank">
+              Devanshu
+            </a>
+            ,{" "}
+            <a href="https://github.com/DevanshuTripathi" target="_blank">
+              Devanshu
+            </a>
+            ,{" "}
+            <a href="https://github.com/DevanshuTripathi" target="_blank">
+              Devanshu
+            </a>
+            ,{" "}
+            <a href="https://github.com/DevanshuTripathi" target="_blank">
+              Devanshu
+            </a>
           </p>
         </div>
       </footer>
@@ -114,3 +144,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
