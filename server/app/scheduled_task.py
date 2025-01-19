@@ -70,6 +70,7 @@ class ScheduledTask:
                         result[domain].append({
                             "name": mapped_data['Name'],
                             "tagline": mapped_data['Tagline'],
+                            "designation": mapped_data['Designation'],
                             "image": mapped_data['Profile Picture URL'],
                             "insta": mapped_data['Instagram Profile URL'],
                             "github": mapped_data['Github Profile URL'],
