@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 from os import getenv
 import json
 
-load_dotenv('.env')
+load_dotenv('.env', override=True)
 
 class ScheduledTask:
     def __init__(self, interval):
@@ -18,13 +18,12 @@ class ScheduledTask:
 
     def self_call(self):
         while True:
-            response = requests.get("http://localhost:5000/api/members")
+            response = requests.get(f"{getenv('APP_URL')}/api/members")
             print("Self Call Status:",response.status_code)
             self.update_members_json()
             time.sleep(self.interval)
 
-    def update_members_json(self): 
-        print("here")         
+    def update_members_json(self):
         SERVICE_ACCOUNT_FILE = 'client_secret.json'
         SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
         SPREADSHEET_ID = getenv('SPREADSHEET_ID_MEMBERS')
@@ -76,8 +75,9 @@ class ScheduledTask:
                             "github": mapped_data['Github Profile URL'],
                             "LinkedIn": mapped_data['Linkedin Profile URL']
                         })
-
+            print(result)
             with open('members.json', 'w') as f:
+                print("Writing to members.json")
                 json.dump(result, f, indent=4)
             return True
 
