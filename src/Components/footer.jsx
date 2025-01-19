@@ -13,7 +13,6 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="bg-[#141930]">
-      {/* Waves Section */}
       <div className="relative">
         <img
           src={Waves}
@@ -23,7 +22,6 @@ const Footer = () => {
         />
       </div>
 
-      {/* Footer Section */}
       <footer className="bg-[#38457C] text-gray-400 py-8 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start">
           <div className="flex-1 md:mr-auto">
