@@ -4,6 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.contact-form {
+body {
     font-family: 'Poppins';
 }

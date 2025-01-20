@@ -1,5 +1,6 @@
 import React from "react";
 import Mountain from "../assets/Group 23.png";
+import TeamScroller from './sections/TeamScroller'
 
 const Team = () => {
   return (
@@ -21,6 +22,7 @@ const Team = () => {
         
         <div className="hidden sm:block w-[200px] sm:w-[250px] md:w-[280px] h-px bg-white mt-[-3px] ml-auto mr-[50px] sm:mr-[120px] md:mr-[160px] lg:mr-[150px]"></div>
       </div>
+      <TeamScroller />
     </div>
   );
 };
