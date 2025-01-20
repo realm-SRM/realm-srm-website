@@ -73,7 +73,7 @@ export default function Contact(){
             
         <div className="h-1 border-t-0 border-b-[1px] border-red-400 w-10/12 ml-8 lg:ml-32 "></div>
         
-        <div className="flex flex-col justify-center lg:flex-row lg:justify-end gap-24 py-5 lg:py-10">
+        <div className="flex flex-col justify-center lg:flex-row lg:justify-end gap-16 py-5 lg:py-10">
         <div>
             <div className="mapouter flex justify-center relative text-right w-full h-[325px]">
       <div className="gmap_canvas overflow-hidden bg-none w-1/2 lg:w-full h-[325px]">

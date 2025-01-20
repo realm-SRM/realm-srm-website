@@ -20,7 +20,7 @@ const categories = {
   "Neural Stack": { domain: "AIML Engg", positions: ["SDE-3 (Lead)", "SDE-2 (Associate)"] },
   "Design Matrix": { domain: "UI/UX", positions: ["SDE-3 (Lead)", "SDE-2 (Associate)"] },
   "Innovation Hub": { domain: "R & D", positions: ["SDE-3 (Lead)", "SDE-2 (Associate)"] },
-  "Event Controllers": { domain: "Events", positions: ["SDE-3 (Lead)", "SDE-2 (Associate)"] },
+  "Event Controllers": { domain: "Events", positions: ["Lead", "Associate"] },
   "Root Node": { domain: "", positions: ["President", "Director"] },
   "Core Compiler": {domain: "", positions: ["Tech Lead", "Project Lead"] },
   "System Process": {domain: "", positions: ["Secretary"] },
@@ -82,6 +82,7 @@ const TeamScroller = () => {
                   onClick={() => handleClick(index)}
                   layout
                   animate={{
+                    filter: index === 4 ? 'blur(0px) brightness(100%) ' : 'blur(1px) brightness(100%)',
                     scale: index === 4 ? 1.1 : 1,
                     backgroundColor: index === 4 ? "#FFDCC1" : (index > 4 ? colors[index - 5] : colors[index] ),
                     x: index === 4 ? 175 : (index > 4 ? (4 - index)*30 + 120 : (index)*30 ) ,
@@ -92,11 +93,11 @@ const TeamScroller = () => {
                     stiffness: 250,
                     damping: 40,
                   }}
-                  className="w-56 h-14 rounded-full flex gap-4 items-center justify-center text-white text-xl cursor-pointer mb-5"
+                  className="w-56 h-14 rounded-full flex items-center justify-center text-white text-xl cursor-pointer mb-5"
                 >
-                  <div style={{backgroundColor: index === 4 ? 'black' : '#FFDCC1'}} className="h-2 w-2 rounded-full" />
+                  <div style={{backgroundColor: index === 4 ? 'black' : '#FFDCC1'}} className="h-2 w-2 rounded-full ml-4 mr-auto " />
                   {item}
-                  <div style={{backgroundColor: index === 4 ? 'black' : '#FFDCC1'}} className="h-2 w-2 rounded-full" />
+                  <div style={{backgroundColor: index === 4 ? 'black' : '#FFDCC1'}} className="h-2 w-2 rounded-full mr-4 ml-auto" />
                 </motion.div>
               ))}
       </div>
@@ -107,12 +108,12 @@ const TeamScroller = () => {
     key={items[4]}
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -20 }}
+    exit={{ opacity: 0, y: -20, filter: 'blur(2px)' }}
     transition={{ duration: 0.4 }}
     className="w-full flex flex-col h-full "
     >
       {items[4] === "System Process" && (
-        <div className="flex flex-row gap-8 h-full pb-16 items-center justify-center">
+        <div className="flex flex-row gap-10 h-full pb-16 items-center justify-center">
           {["Secretary", "Secretary", "Secretary"].map((pos, index) => (
             <PositionCard
               key={index}
@@ -127,7 +128,7 @@ const TeamScroller = () => {
       )}
 
       {items[4] === "Root Node" && (
-        <div className="flex flex-row gap-8 h-full pb-16 items-center justify-center">
+        <div className="flex flex-row gap-16 h-full pb-16 items-center justify-center">
           {["President", "Director"].map((pos, index) => (
             <PositionCard
               key={index}
@@ -161,7 +162,7 @@ const TeamScroller = () => {
       )}
 
       {items[4] === "Core Compiler" && (
-        <div className="flex flex-row gap-8 h-full pb-16 items-center justify-center">
+        <div className="flex flex-row gap-16 h-full pb-16 items-center justify-center">
           {selectedCategory.positions.map((pos, index) => (
             <PositionCard
               key={index}
@@ -177,7 +178,7 @@ const TeamScroller = () => {
 
       {!["System Process", "Root Node", "Innovation Hub", "Core Compiler"].includes(items[4]) && (
         <>
-          <div className="Leads flex flex-row gap-10 mb-16 justify-center">
+          <div className="Leads flex flex-row gap-10 mb-20 justify-center">
             {selectedCategory.positions[0] && (
               <>
                 <PositionCard
