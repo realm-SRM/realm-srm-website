@@ -7,11 +7,12 @@ const AboutUs = () => {
     <div className="flex justify-center items-center min-h-screen bg-[#38457C] px-4">
       <div className="flex flex-wrap lg:flex-nowrap w-full max-w-[1009px] bg-[#19203e] rounded-lg p-6 md:p-8 shadow-lg">
         <div className="w-full lg:w-1/2 flex justify-center items-center">
-        
-          <div className="w-full h-[200px] sm:h-[300px] lg:h-[90%] border-2 border-gray-400 relative">
-          <img 
-        className="h-full w-full"
-        src={Shivansh} alt="BhaiyaJI" />
+          <div className="w-full h-[200px] sm:h-[300px] lg:h-[90%] border-2 border-gray-400 relative overflow-hidden">
+            <img 
+              className="h-full w-full object-cover max-w-full max-h-full"
+              src={Shivansh} 
+              alt="BhaiyaJI" 
+            />
             <div className="absolute border-t-2 border-gray-400 top-0 left-0 w-full h-full"></div>
             <div className="absolute border-l-2 border-gray-400 bottom-0 right-0 w-full h-full"></div>
           </div>

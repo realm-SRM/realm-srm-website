@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_cors import CORS
+from app.scheduled_task import ScheduledTask
 
 def create_app():
     app = Flask(__name__)
@@ -14,5 +15,8 @@ def create_app():
     app.register_blueprint(contact_routes, url_prefix="/api")
     app.register_blueprint(members_routes, url_prefix="/api")
     app.register_blueprint(recruitment_routes, url_prefix="/api")
+
+    # Initialize scheduled task
+    ScheduledTask(1800)  # 1800 seconds aka 1/2 hour
 
     return app
