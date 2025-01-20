@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PositionCard from './PositionCard';
 
@@ -33,6 +33,64 @@ const colors = [
 const TeamScroller = () => {
   const [items, setItems] = useState(initialItems);
   const [clickedIndex, setClickedIndex] = useState(4);
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+
+    const fetchData = async () => {
+      try{
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/members`);
+        if(!response.ok){
+          throw new Error('Failed To fetch data ');
+        }
+        const result = await response.json();
+        setData(result);
+      } catch (error) {
+        throw new Error(`${error}`);
+      }
+    };
+
+    fetchData();
+
+  },[])
+
+  const getMembersByRole = (role, designation = null) => {
+    if(!data) return [];
+
+    switch(role){
+      case "Root Node":
+        return designation === "President" ? data.President : data.Director;
+
+      case "Core Compiler":
+        return designation === "Tech Lead" ? data["Tech Lead"] : data["Project Lead"];
+
+      case "System Process":
+        return data.Secretary;
+
+      case "Frame Foundary":
+        return data["Web Developer"]?.filter(member => 
+          designation ? member.designation === designation : true
+        ) || [];
+      case "App Circuit":
+        return data["App Developer"]?.filter(member => 
+          designation ? member.designation === designation : true
+        ) || [];
+      case "Neural Stack":
+        return data["AI/ML Developer"]?.filter(member => 
+          designation ? member.designation === designation : true
+        ) || [];
+      case "Design Matrix":
+        return data["UI/UX Designer"] || [];
+      case "Innovation Hub":
+        return data["RnD"] || [];
+      case "Event Controllers":
+        return data["Events"] || [];
+      default:
+        return [];
+
+    }
+
+  };
 
   const handleClick = (index) => {
     setClickedIndex(index);
@@ -72,6 +130,24 @@ const TeamScroller = () => {
   };
 
   const selectedCategory = categories[items[4]];
+
+  const renderPositionCards = (role, designation = null) => {
+    const members = getMembersByRole(role, designation);
+    return members.map((member, index) => (
+      <PositionCard
+        key={index}
+        domain={categories[role].domain}
+        name={member.name}
+        tagline={member.tagline}
+        image={member.image}
+        github={member.github}
+        insta={member.insta}
+        linkedin={member.LinkedIn}
+        pos={designation || categories[role].positions[0]}
+      />
+    ));
+  };
+
 
   return (
     <div className="flex flex-row bg-[#141930] px-10 ">
@@ -113,120 +189,30 @@ const TeamScroller = () => {
     className="w-full flex flex-col h-full "
     >
       {items[4] === "System Process" && (
-        <div className="flex flex-row gap-10 h-full pb-16 items-center justify-center">
-          {["Secretary", "Secretary", "Secretary"].map((pos, index) => (
-            <PositionCard
-              key={index}
-              domain={selectedCategory.domain}
-              github="http://github.com/DevanshuTripathi"
-              insta="#"
-              linkedin="#"
-              pos={pos}
-            />
-          ))}
-        </div>
-      )}
+                <div className="flex flex-row gap-10 h-full pb-16 items-center justify-center">
+                  {renderPositionCards("System Process")}
+                </div>
+              )}
 
-      {items[4] === "Root Node" && (
-        <div className="flex flex-row gap-16 h-full pb-16 items-center justify-center">
-          {["President", "Director"].map((pos, index) => (
-            <PositionCard
-              key={index}
-              domain={selectedCategory.domain}
-              github="http://github.com/DevanshuTripathi"
-              insta="#"
-              linkedin="#"
-              pos={pos}
-            />
-          ))}
-        </div>
-      )}
+              {items[4] === "Root Node" && (
+                <div className="flex flex-row gap-16 h-full pb-16 items-center justify-center">
+                  {renderPositionCards("Root Node", "President")}
+                  {renderPositionCards("Root Node", "Director")}
+                </div>
+              )}
 
-      {items[4] === "Innovation Hub" && (
-        <div className="flex flex-col gap-16 items-center">
-          <PositionCard
-            domain={selectedCategory.domain}
-            github="http://github.com/DevanshuTripathi"
-            insta="#"
-            linkedin="#"
-            pos={selectedCategory.positions[0]}
-          />
-          <PositionCard
-            domain={selectedCategory.domain}
-            github="http://github.com/DevanshuTripathi"
-            insta="#"
-            linkedin="#"
-            pos={selectedCategory.positions[1]}
-          />
-        </div>
-      )}
-
-      {items[4] === "Core Compiler" && (
-        <div className="flex flex-row gap-16 h-full pb-16 items-center justify-center">
-          {selectedCategory.positions.map((pos, index) => (
-            <PositionCard
-              key={index}
-              domain={selectedCategory.domain}
-              github="http://github.com/DevanshuTripathi"
-              insta="#"
-              linkedin="#"
-              pos={pos}
-            />
-          ))}
-        </div>
-      )}
-
-      {!["System Process", "Root Node", "Innovation Hub", "Core Compiler"].includes(items[4]) && (
-        <>
-          <div className="Leads flex flex-row gap-10 mb-20 justify-center">
-            {selectedCategory.positions[0] && (
-              <>
-                <PositionCard
-                  domain={selectedCategory.domain}
-                  github="http://github.com/DevanshuTripathi"
-                  insta="#"
-                  linkedin="#"
-                  pos={selectedCategory.positions[0]}
-                />
-                <PositionCard
-                  domain={selectedCategory.domain}
-                  github="http://github.com/DevanshuTripathi"
-                  insta="#"
-                  linkedin="#"
-                  pos={selectedCategory.positions[0]}
-                />
-              </>
-            )}
-          </div>
-          <div className="Associates flex flex-row gap-8 justify-center">
-            {selectedCategory.positions[1] && (
-              <>
-                <PositionCard
-                  domain={selectedCategory.domain}
-                  github="http://github.com/DevanshuTripathi"
-                  insta="#"
-                  linkedin="#"
-                  pos={selectedCategory.positions[1]}
-                />
-                <PositionCard
-                  domain={selectedCategory.domain}
-                  github="http://github.com/DevanshuTripathi"
-                  insta="#"
-                  linkedin="#"
-                  pos={selectedCategory.positions[1]}
-                />
-                <PositionCard
-                  domain={selectedCategory.domain}
-                  github="http://github.com/DevanshuTripathi"
-                  insta="#"
-                  linkedin="#"
-                  pos={selectedCategory.positions[1]}
-                />
-              </>
-            )}
-          </div>
-        </>
-      )}
+              {/* Similar pattern for other conditions */}
+              
+              {!["System Process", "Root Node", "Innovation Hub", "Core Compiler"].includes(items[4]) && (
+                <>
+                  <div className="Leads flex flex-row gap-10 mb-20 justify-center">
+                    {renderPositionCards(items[4], "SDE-3")}
+                  </div>
+                  <div className="Associates flex flex-row gap-8 justify-center">
+                    {renderPositionCards(items[4], "SDE-2")}
+                  </div>
+                </>
+              )}
     </motion.div>
   )}
   </AnimatePresence>

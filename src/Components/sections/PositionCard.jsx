@@ -7,7 +7,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import html2canvas from 'html2canvas';
 import { useState } from 'react';
 
-export default function PositionCard(props){
+export default function PositionCard({ domain, name, tagline, image, github, insta, linkedin, pos }){
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [imageUrl, setImageUrl] = useState(null);
@@ -29,7 +29,6 @@ export default function PositionCard(props){
     };
 
     return(
-        // <div className="bg-black rounded-[50px] w-[260px] h-[300px] flex items-center justify-center ">
             <div className="pos-card bg-[#0E1218] border-black border-8 w-[240px] h-72 rounded-3xl " id="position-card"   >
                 <div className="Ranks pt-3 pl-3 flex flex-row gap-1 text-white text-xs relative " >
                     <img src={Mainlogo} className="w-[30px] h-[30px] " />
@@ -40,34 +39,43 @@ export default function PositionCard(props){
                         <div className="flex flex-row gap-1" >
                             <div className='p-0 m-0' >Realm Srm</div>
                             <div className="w-1 h-[15px] border-l-2 border-white" />
-                            <div className='p-0 m-0' >{props.domain}</div>
+                            <div className='p-0 m-0' >{domain}</div>
                         </div>
                         <div>
-                            {props.pos}
+                            {pos}
                         </div>
                     </div>
 
                 </div>
                 
-                <div className="PhotoTag pt-5 pl-1 pr-1 flex flex-row items-end " >
-                    <div className="pt-1 flex flex-col gap-2 w-[125px] h-[110px] bg-gradient-to-b from-[rgba(0,0,0,0.15)] via-[rgba(70,69,69,0.5)] to-[rgba(62,56,56,0.6)] relative -mr-10 z-20 rounded-full " >
-                        <p className="text-white text-md flex justify-center pt-3 " >Devanshu</p>
-                        <p className="text-[11px] text-white opacity-50 flex items-center text-center " >Lorem ipsum dolor sit amet, consectetuer adipiscin</p>
+                <div className="PhotoTag pt-5 pl-1 pr-1 flex flex-row items-end">
+                    <div className="pt-1 flex flex-col gap-2 w-[130px] h-[100px] bg-[#3E3838] bg-opacity-30 relative -mr-24 z-20 rounded-[40px]">
+                        <div className="flex flex-col items-center justify-center h-full px-4 -mt-1">
+                            <p className="text-white text-sm text-nowrap">{name}</p>
+                            <p className="text-[11px] text-white opacity-50 text-center mt-1">{tagline}</p>
+                        </div>
                     </div>
-                    <div className="flex flex-1 justify-end relative z-10 " >   
-                        <img src={Standby} className="w-[150px] h-[150px] rounded-full bg-blue-950 border-[10px] border-[#8257E5] " />
+                    <div className="flex flex-1 justify-end relative z-10">   
+                        <img src={image || Standby} className="w-[150px] h-[150px] rounded-full bg-blue-950 border-[10px] border-[#8257E5]" />
                     </div>
                 </div>
 
                 <div className="Socials pt-4 flex flex-row justify-center gap-7 text-white  " >
-                    <a href={props.github} target="_blank"><button><GitHubIcon /></button></a>
-                    <a href={props.insta} target="_blank"><button><InstagramIcon /></button></a>
-                    <a href={props.linkedin} target="_blank"><button><LinkedInIcon /></button></a>
+                    <a href={github} target="_blank"><button><GitHubIcon /></button></a>
+                    <a href={insta} target="_blank"><button><InstagramIcon /></button></a>
+                    <a href={linkedin} target="_blank"><button><LinkedInIcon /></button></a>
                     <button onClick={handleShareClick} ><ShareIcon /></button>
                 </div>
 
 
                 {isModalOpen && (
+                    <>
+
+                <div 
+                    className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-50"
+                    onClick={() => setIsModalOpen(false)}
+                />
+
                 <div className="modal fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
                     <div className="modal-content bg-white p-4 rounded-lg text-center">
                         <h2 className="text-xl mb-4">Download Position Card</h2>
@@ -80,11 +88,11 @@ export default function PositionCard(props){
                         </button>
                     </div>
                 </div>
+
+                </>
             )}
 
             </div>
 
-
-        // </div>
     );
 }
