@@ -49,7 +49,7 @@ const Home = () => {
               className="h-[150px] w-[150px] sm:h-[250px] sm:w-[250px] md:h-[350px] md:w-[350px] lg:h-[451px] lg:w-[460px]"
             />
           </div>
-          <div className="absolute top-[350px] sm:top-[150px] md:top-[210px] left-1/2 transform -translate-x-1/2 z-30 flex justify-center items-center">
+          <div className="absolute top-[230px] sm:top-[150px] md:top-[210px] left-1/2 transform -translate-x-1/2 z-30 flex justify-center items-center">
             <span className="text-[#FBE7CF] font-poppins text-[98px] sm:text-[72px] md:text-[96px] lg:text-[128px] font-semibold tracking-widest text-stroke-md text-stroke-black">
               realm
             </span>
