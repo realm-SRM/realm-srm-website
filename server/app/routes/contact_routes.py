@@ -14,7 +14,7 @@ SCOPES = [ 'https://www.googleapis.com/auth/spreadsheets']
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 root_dir = os.path.abspath(os.path.join(script_dir, '../../'))
-credentials_path = os.path.join(root_dir, 'credentials_devanshu.json')
+credentials_path = os.path.join(root_dir, 'client_secret.json')
 
 email_sender = os.getenv('SENDER_EMAIL')
 email_password = os.getenv('PASSKEY')

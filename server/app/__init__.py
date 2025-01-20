@@ -17,6 +17,6 @@ def create_app():
     app.register_blueprint(recruitment_routes, url_prefix="/api")
 
     # Initialize scheduled task
-    ScheduledTask(3600)  # 3600 seconds aka 1 hour
+    ScheduledTask(1800)  # 1800 seconds aka 1/2 hour
 
     return app
