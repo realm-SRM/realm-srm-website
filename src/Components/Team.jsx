@@ -4,6 +4,7 @@ import TeamScroller from './sections/TeamScroller'
 
 const Team = () => {
   return (
+    <div>
     <div className="relative w-full h-screen bg-[#141930] flex justify-center items-center text-center">
       <img
         src={Mountain}
@@ -22,8 +23,11 @@ const Team = () => {
         
         <div className="hidden sm:block w-[200px] sm:w-[250px] md:w-[280px] h-px bg-white mt-[-3px] ml-auto mr-[50px] sm:mr-[120px] md:mr-[160px] lg:mr-[150px]"></div>
       </div>
-      <TeamScroller />
     </div>
+
+    <TeamScroller />
+
+  </div>
   );
 };
 
