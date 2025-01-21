@@ -34,7 +34,7 @@ const AboutUs = () => {
             technology while supporting personal and professional growth for all
             members.
           </p>
-          <Link to="/OurClub">
+          <Link to="/ourclub">
             <button className="mt-6 px-6 sm:px-8 py-2 bg-[#FFDCC1] hover:bg-[#f1c09b] text-[#F15191] font-bold text-[18px] sm:text-[22px] lg:text-[26px] rounded-full transition duration-300">
               Know More?
             </button>
