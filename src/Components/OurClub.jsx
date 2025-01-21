@@ -89,9 +89,10 @@ const OurClub = () => {
         <VisionSection/>
        
       </div>
-      <Benefits />
+    </div>
+    <Calendersection/>
     </>
   );
 };
 
-export default OurClub;
+export default OurClub
