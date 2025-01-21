@@ -10,13 +10,18 @@ export default {
         poppins: ['Poppins', 'sans-serif'],
       },
       colors: {
-        strokeColor: '#000', 
+        strokeColor: '#000',
+        gradientStart: '#FFDCC1',
+        gradientEnd: '#998474',
       },
-      textStroke: { 
-        DEFAULT: '1px',
+      textStroke: {
+        DEFAULT: '3px',
         sm: '0.5px',
         md: '1.5px',
         lg: '2px',
+      },
+      backgroundImage: {
+        'text-gradient': 'linear-gradient(to right, #FFDCC1, #998474)',
       },
     },
   },
@@ -34,6 +39,13 @@ export default {
         },
         '.text-stroke-lg': {
           '-webkit-text-stroke': '2px var(--tw-text-stroke-color, black)',
+        },
+        '.bg-clip-text': {
+          '-webkit-background-clip': 'text',
+          '-webkit-text-fill-color': 'transparent',
+        },
+        '.text-gradient': {
+          'background-image': 'linear-gradient(to right, #FFDCC1, #998474)',
         },
       };
       addUtilities(newUtilities, {
