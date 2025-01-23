@@ -14,7 +14,7 @@ SCOPES = [ 'https://www.googleapis.com/auth/spreadsheets']
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 root_dir = os.path.abspath(os.path.join(script_dir, '../../'))
-credentials_path = os.path.join(root_dir, 'client_secret.json')
+credentials_path = os.path.join(root_dir, 'credentials_devanshu.json')
 
 email_sender = os.getenv('SENDER_EMAIL')
 email_password = os.getenv('PASSKEY')
@@ -69,7 +69,7 @@ def authenticate_sheets():
             flow = InstalledAppFlow.from_client_secrets_file(
                 credentials_path, SCOPES
             )
-            creds = flow.run_local_server(port=8080)
+            creds = flow.run_local_server(port=8080,access_type='offline', prompt='consent')
 
         with open('token_contact.json', 'w') as token:
             token.write(creds.to_json())
