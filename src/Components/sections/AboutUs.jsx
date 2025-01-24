@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Shivansh from '../../assets/shivanshBhaiya.jpg';
+import Shivansh from '../../assets/aboutUs.png';
 
 const AboutUs = () => {
   return (
