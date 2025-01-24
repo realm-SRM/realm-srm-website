@@ -29,17 +29,17 @@ export default function PositionCard({ domain, name, tagline, image, github, ins
     };
 
     return(
-            <div className="pos-card bg-[#0E1218] border-black border-8 w-[240px] h-72 rounded-3xl " id="position-card"   >
+            <div className="pos-card bg-[#0E1218] border-black border-8 w-[250px] h-[40vh] lg:w-[16vw] lg:h-[38vh] rounded-3xl " id="position-card"   >
                 <div className="Ranks pt-3 pl-3 flex flex-row gap-1 text-white text-xs relative " >
-                    <img src={Mainlogo} className="w-[30px] h-[30px] " />
+                    <img src={Mainlogo} className=" w-[30px] lg:w-[2vw] " />
 
-                    <div className="w-1 h-[30px] border-l-2 border-white" />
+                    <div className="w-1 h-[4vh] border-l-2 border-white" />
                     
                     <div className="Deets flex flex-col " >
                         <div className="flex flex-row gap-1" >
-                            <div className='p-0 m-0' >Realm Srm</div>
-                            <div className="w-1 h-[15px] border-l-2 border-white" />
-                            <div className='p-0 m-0' >{domain}</div>
+                            <div className='p-0 m-0 text-md ' >Realm Srm</div>
+                            <div className="w-1 h-[2vh] border-l-2 border-white" />
+                            <div className='p-0 m-0 text-md ' >{domain}</div>
                         </div>
                         <div>
                             {pos}
@@ -49,18 +49,18 @@ export default function PositionCard({ domain, name, tagline, image, github, ins
                 </div>
                 
                 <div className="PhotoTag pt-5 pl-1 pr-1 flex flex-row items-end">
-                    <div className="pt-1 flex flex-col gap-2 w-[130px] h-[100px] bg-[#3E3838] bg-opacity-30 relative -mr-24 z-20 rounded-[40px]">
+                    <div className="pt-1 flex flex-col gap-2 w-[40vw] h-[12vh] lg:w-[10vw] lg:h-[12vh] bg-[#3E3838] bg-opacity-30 relative -mr-24 z-20 rounded-[40px]">
                         <div className="flex flex-col items-center justify-center h-full px-4 -mt-1">
                             <p className="text-white text-sm text-nowrap">{name}</p>
                             <p className="text-[11px] text-white opacity-50 text-center mt-1">{tagline}</p>
                         </div>
                     </div>
                     <div className="flex flex-1 justify-end relative z-10">   
-                        <img src={image || Standby} className="w-[150px] h-[150px] rounded-full bg-blue-950 border-[10px] border-[#8257E5]" />
+                        <img src={image || Standby} className=" w-[18vh] h-[18vh] lg:w-[10vw] lg:h-[20vh] rounded-full bg-blue-950 border-[10px] border-[#8257E5]" />
                     </div>
                 </div>
 
-                <div className="Socials pt-4 flex flex-row justify-center gap-7 text-white  " >
+                <div className="Socials py-10 lg:py-4 2xl:py-8 flex flex-row justify-center gap-7 text-white  " >
                     <a href={github} target="_blank"><button><GitHubIcon /></button></a>
                     <a href={insta} target="_blank"><button><InstagramIcon /></button></a>
                     <a href={linkedin} target="_blank"><button><LinkedInIcon /></button></a>
