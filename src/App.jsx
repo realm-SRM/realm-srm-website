@@ -8,8 +8,7 @@ import Events from './Components/Events';
 import Team from './Components/Team';
 import JoinUs from './Components/JoinUs';
 import Accelerators from './Components/Accelerators';
-
-
+import TermsConditions from './Components/TermsConditions';
 
 const App = () => {
   return (
@@ -22,6 +21,7 @@ const App = () => {
         <Route path="/team" element={<Team />} />
         <Route path="/join-us" element={<JoinUs />} />
         <Route path="/accelerators" element={<Accelerators />} />
+        <Route path="/TermsConditions" element={< TermsConditions />} />
       </Routes>
       <Footer/> 
    </Router>
