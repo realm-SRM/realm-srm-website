@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion';
 import dummyImage from '../assets/dummyImage.png'
 import AccCard from './sections/AccCard'
+import { BackgroundBeamsWithCollision } from "./sections/ui/background-beams-with-collision"
 
 const Accelerators = () => {
 
@@ -65,7 +66,8 @@ const Accelerators = () => {
   };
 
   return (
-    <div className='bg-[#141930] pt-24 px-10 h-screen ' >
+    <BackgroundBeamsWithCollision>
+    <div className='pt-24 px-10 h-screen ' >
       <div className="flex flex-row justify-between gap-10 h-[45vh] " >
           <div className='Content' >
 
@@ -87,6 +89,7 @@ const Accelerators = () => {
                 scale: index === parseInt(initialMembers.length/2) ? 1.15 : index === 0 || index === initialMembers.length - 1 ? 0.9 : 1,
                 x: index === parseInt(initialMembers.length/2) ? 0 : (2 - index)*150,
                 zIndex: index === parseInt(initialMembers.length/2) ? 10 : index === 0 || index === initialMembers.length - 1 ? 7 : 8 ,
+                // filter: index === parseInt(initialMembers.length/2) ? 'brightness(1.25)' : 'brightness(1)',
               }}
               transition={{
                 duration: 0.8,
@@ -96,7 +99,9 @@ const Accelerators = () => {
               }}
               className='absolute'
               >
-              <img src={membersList[members[index]].image} className='w-64' />
+              <div className='' >
+                <img src={membersList[members[index]].image} className='w-60 hover:brightness-110 transition ease-in-out ' />
+              </div>
               </motion.div>
             ) )}
 
@@ -109,6 +114,7 @@ const Accelerators = () => {
 
       </div>
     </div>
+    </BackgroundBeamsWithCollision>
   )
 }
 

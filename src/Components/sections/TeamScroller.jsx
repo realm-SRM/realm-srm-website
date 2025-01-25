@@ -210,7 +210,7 @@ const TeamScroller = () => {
 
 
   return (
-    <div className="bg-[#141930]  " >
+    <div className="bg-[#141930] " >
     <div className="hidden lg:flex flex-row px-10 ">
       <div className="flex flex-col items-start justify-start h-screen text-white pt-16">
               {items.map((item, index) => (
@@ -401,7 +401,7 @@ const TeamScroller = () => {
 
       <div className="Option Scroller" >
 
-      <div className="flex flex-row items-start justify-center h-screen text-white pt-6">
+      <div className="flex flex-row items-start justify-center text-white mb-16 pt-6">
               {items.map((item, index) => (
                 <motion.div
                   key={item}
