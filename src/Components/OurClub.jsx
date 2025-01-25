@@ -1,5 +1,6 @@
 import React from 'react';
 import Backimg from '../assets/Ourclubbackimg.png';
+import Calendersection from './sections/Calendersection';
 
 const OurClub = () => {
   const [hoveredNode, setHoveredNode] = useState(null);
@@ -24,6 +25,7 @@ const OurClub = () => {
   }));
 
   return (
+    <>
     <div className="relative flex items-center justify-center min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
       <img
         src={Backimg}
@@ -61,6 +63,8 @@ const OurClub = () => {
         </ul>
       </div>
     </div>
+    <Calendersection/>
+    </>
   );
 };
 
