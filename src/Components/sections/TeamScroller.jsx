@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PositionCard from './PositionCard';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const initialItems = [
   "Root Node",
@@ -15,9 +17,9 @@ const initialItems = [
 ];
 
 const categories = {
-  "Frame Foundary": { domain: "Web Developer", positions: ["SDE-3 (Lead)", "SDE-2 (Associate)"] },
-  "App Circuit": { domain: "App Developer", positions: ["SDE-3 (Lead)", "SDE-2 (Associate)"] },
-  "Neural Stack": { domain: "AIML Engg", positions: ["SDE-3 (Lead)", "SDE-2 (Associate)"] },
+  "Frame Foundary": { domain: "Web Dev", positions: ["SDE-3 (Lead)", "SDE-2 (Associate)"] },
+  "App Circuit": { domain: "App Dev", positions: ["SDE-3 (Lead)", "SDE-2 (Associate)"] },
+  "Neural Stack": { domain: "AIML", positions: ["SDE-3 (Lead)", "SDE-2 (Associate)"] },
   "Design Matrix": { domain: "UI/UX", positions: ["SDE-3 (Lead)", "SDE-2 (Associate)"] },
   "Innovation Hub": { domain: "R & D", positions: ["SDE-3 (Lead)", "SDE-2 (Associate)"] },
   "Event Controllers": { domain: "Events", positions: ["Lead", "Associate"] },
@@ -165,27 +167,38 @@ const TeamScroller = () => {
   
     const MobilePositionCardCarousel = () => {
       const [currentIndex, setCurrentIndex] = useState(0);
+      const [direction, setDirection] = useState(-1);
   
-      useEffect(() => {
-        if (members.length > 1) {
-          const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % members.length);
-          }, 3000);
+      const goToPrevious = () => {
+        setDirection(1);
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + members.length) % members.length);
+      };
   
-          return () => clearInterval(interval);
-        }
-      }, [members]);
+      const goToNext = () => {
+        setDirection(-1);
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % members.length);
+      };
   
       const member = members[currentIndex];
   
       return (
         <div className="relative w-screen flex justify-center h-[40vh] overflow-hidden">
+          
+          {members.length > 1 && (
+          <button
+            onClick={goToPrevious}
+            className="absolute left-4 top-1/2 transform opacity-50 -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full z-10"
+          >
+            <ArrowBackIosNewIcon />
+          </button>
+          )}
+          <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
-            initial={{ opacity: 0, x: -100 }}
+            initial={{ opacity: 0, x: direction === 1 ? -100 : 100 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 100 }}
-            transition={{ duration: 1 }}
+            exit={{ opacity: 0, x: direction === 1 ? -100 : 100 }}
+            transition={{ duration: 0.8 }}
           >
             <PositionCard
               domain={categories[role]?.domain}
@@ -198,6 +211,17 @@ const TeamScroller = () => {
               pos={designation || categories[role]?.positions?.[0]}
             />
           </motion.div>
+          </AnimatePresence>
+          
+          {members.length > 1 && (
+          <button
+            onClick={goToNext}
+            className="absolute right-4 top-1/2 transform opacity-50 -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full z-10"
+          >
+            <ArrowForwardIosIcon />
+          </button>
+        )}
+
         </div>
       );
     };
@@ -230,11 +254,11 @@ const TeamScroller = () => {
                     stiffness: 250,
                     damping: 40,
                   }}
-                  className=" w-[15vw] 2xl:w-[18vw] h-[10vh] 2xl:h-[8vh] rounded-full flex items-center justify-center text-white text-xl 2xl:text-2xl cursor-pointer mb-5"
+                  className=" w-[15vw] 2xl:w-[18vw] h-[10vh] 2xl:h-[8vh] rounded-full flex items-center justify-center text-white text-sm 2xl:text-2xl cursor-pointer mb-5"
                 >
-                  <div style={{backgroundColor: index === 4 ? 'black' : '#FFDCC1'}} className="h-2 w-2 rounded-full ml-4 mr-auto " />
+                  <div style={{backgroundColor: index === 4 ? 'black' : '#FFDCC1'}} className="h-2 w-2 rounded-full ml-2 mr-auto " />
                   {item}
-                  <div style={{backgroundColor: index === 4 ? 'black' : '#FFDCC1'}} className="h-2 w-2 rounded-full mr-4 ml-auto" />
+                  <div style={{backgroundColor: index === 4 ? 'black' : '#FFDCC1'}} className="h-2 w-2 rounded-full mr-2 ml-auto" />
                 </motion.div>
               ))}
       </div>
@@ -399,9 +423,9 @@ const TeamScroller = () => {
 
       </div>
 
-      <div className="Option Scroller" >
+      <div className="Option Scroller " >
 
-      <div className="flex flex-row items-start justify-center h-screen text-white pt-6">
+      <div className="flex flex-row items-start justify-center mb-16 text-white pt-6">
               {items.map((item, index) => (
                 <motion.div
                   key={item}
@@ -420,7 +444,7 @@ const TeamScroller = () => {
                     stiffness: 250,
                     damping: 40,
                   }}
-                  className="h-10 rounded-full absolute flex items-center justify-center text-white text-[12px] cursor-pointer mb-5"
+                  className="h-10 rounded-full absolute flex items-center justify-center text-white text-[10px] cursor-pointer mb-5"
                 >
                   <div style={{backgroundColor: index === 4 ? 'black' : '#FFDCC1'}} className="h-[2px] w-[2px] rounded-full ml-1 mr-auto " />
                   {item}
