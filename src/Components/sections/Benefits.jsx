@@ -2,7 +2,7 @@ import React from "react";
 
 const Benefits = () => {
   return (
-    <div className="min-h-screen bg-[#141930] flex items-center justify-center px-6">
+    <div className="min-h-screen bg-[#141930] flex items-center justify-center px-6 ">
       <div className="w-full max-w-5xl bg-[#141930] text-[#FFDCC1] p-12 rounded-xl shadow-md">
         <h1 className="text-4xl font-semibold mb-6">BENEFITS</h1>
         <ul className="list-disc text-xl list-inside space-y-8 leading-relaxed">

@@ -57,7 +57,7 @@ E-Mail ID: kumaraakarsh25@gmail.com
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-pink-500 transition duration-300">
+                <Link to="/ourclub" className="hover:text-pink-500 transition duration-300">
                   Our Club
                 </Link>
               </li>
