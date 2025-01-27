@@ -89,9 +89,8 @@ const OurClub = () => {
         <VisionSection/>
        
       </div>
-    </div>
     <Calendersection/>
-    </>
+    </
   );
 };
 
