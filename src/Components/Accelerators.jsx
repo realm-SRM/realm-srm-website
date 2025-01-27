@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import dummyImage from '../assets/dummyImage.png'
 import Standby from '../assets/Standby.png'
 import AccCard from './sections/AccCard'
@@ -160,18 +160,31 @@ const Accelerators = () => {
           </div>
 
           <div className='ProfileCard h-[53vh] w-[18vw] ' >
-              <AccCard
-              name = {membersList[members[2]].name}
-              pfp = {membersList[members[2]].pfp}
-              tagline = {membersList[members[2]].tagline}
-              skill1 = {membersList[members[2]].skill[0]}
-              skill2 = {membersList[members[2]].skill[1]}
-              skill3 = {membersList[members[2]].skill[2]}
-              music = {membersList[members[2]].music}
-              insta = {membersList[members[2]].insta}
-              github = {membersList[members[2]].github}
-              linkedin = {membersList[members[2]].linkedin} 
-              />
+            <AnimatePresence mode="wait">
+              <motion.div
+              key={members[clickedIndex]}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{
+                duration: 0.5,
+                ease: "easeInOut"
+              }}
+              >
+                  <AccCard
+                  name={membersList[members[clickedIndex]].name}
+                  pfp={membersList[members[clickedIndex]].pfp}
+                  tagline={membersList[members[clickedIndex]].tagline}
+                  skill1={membersList[members[clickedIndex]].skill[0]}
+                  skill2={membersList[members[clickedIndex]].skill[1]}
+                  skill3={membersList[members[clickedIndex]].skill[2]}
+                  music={membersList[members[clickedIndex]].music}
+                  insta={membersList[members[clickedIndex]].insta}
+                  github={membersList[members[clickedIndex]].github}
+                  linkedin={membersList[members[clickedIndex]].linkedin} 
+                  />
+              </motion.div>
+            </AnimatePresence>
           </div>
 
       </div>

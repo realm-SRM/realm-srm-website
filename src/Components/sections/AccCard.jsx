@@ -12,7 +12,7 @@ import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 
 export default function AccCard(props){
 
-    const [isPlaying, setIsPlaying] = useState(true);
+    const [isPlaying, setIsPlaying] = useState(false);
     const [volume, setVolume] = useState(0.5);  // Initial volume set to 50%
     const [muted, setMuted] = useState(false);  // Initially not muted
 
