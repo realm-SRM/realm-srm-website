@@ -246,7 +246,7 @@ const TeamScroller = () => {
                     filter: index === 4 ? 'blur(0px) brightness(120%) ' : 'blur(0px) brightness(60%)',
                     scale: index === 4 ? 1.1 : 1,
                     backgroundColor: index === 4 ? "#FFDCC1" : (index > 4 ? colors[index - 5] : colors[index] ),
-                    x: index === 4 ? 175 : (index > 4 ? (4 - index)*30 + 120 : (index)*30 ) ,
+                    x: index === 4 ? 150 : (index > 4 ? (4 - index)*30 + 120 : (index)*30 ) ,
                     color: index === 4 ? 'black' : '#FFDCC1',
                   }}
                   transition={{
@@ -274,20 +274,20 @@ const TeamScroller = () => {
     className="w-full flex flex-col h-full "
     >
       {items[4] === "System Process" && (
-                <div className="flex flex-row gap-10 h-full pb-16 items-center justify-center">
+                <div className="flex flex-row gap-10 h-full pb-0 items-center justify-center">
                   {renderPositionCards("System Process", "Secretary")}
                 </div>
               )}
 
               {items[4] === "Root Node" && (
-                <div className="flex flex-row gap-16 h-full pb-16 items-center justify-center">
+                <div className="flex flex-row gap-16 h-full pb-0 items-center justify-center">
                   {renderPositionCards("Root Node", "President")}
                   {renderPositionCards("Root Node", "Director")}
                 </div>
               )}
 
               {items[4] === "Core Compiler" && (
-                <div className="flex flex-row gap-16 h-full pb-16 items-center justify-center">
+                <div className="flex flex-row gap-16 h-full pb-0 items-center justify-center">
                   {renderPositionCards("Core Compiler", "Tech Lead")}
                   {renderPositionCards("Core Compiler", "Project Lead")}
                 </div>
@@ -297,7 +297,7 @@ const TeamScroller = () => {
               
               {!["System Process", "Root Node", "Core Compiler"].includes(items[4]) && (
                 <>
-                  <div className="Leads flex flex-row gap-10 mb-20 justify-center">
+                  <div className="Leads flex flex-row gap-10 mb-5 justify-center">
                     {renderPositionCards(items[4], "SDE-3")}
                   </div>
                   <div className="Associates flex flex-row gap-8 justify-center">
@@ -329,7 +329,7 @@ const TeamScroller = () => {
           className="w-full flex flex-col h-full "
           >
             {/* {items[4] === "System Process" && (
-                      <div className="flex flex-row gap-10 h-full pb-16 items-center justify-center">
+                      <div className="flex flex-row gap-10 h-full pb-0 items-center justify-center">
                         {renderPositionCards("System Process", "Secretary")}
                       </div>
                     )} */}

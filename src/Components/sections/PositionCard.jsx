@@ -29,7 +29,7 @@ export default function PositionCard({ domain, name, tagline, image, github, ins
     };
 
     return(
-            <div className="pos-card bg-[#0E1218] border-black border-8 w-[300px] h-[40vh] lg:w-[19vw] lg:h-[39vh] xl:w-[17vw] xl:h-[39vh] rounded-3xl " id="position-card"   >
+            <div className="pos-card bg-[#0E1218] border-black border-8 w-[300px] h-[40vh] lg:w-[19vw] lg:h-[43vh] xl:w-[17vw] xl:h-[43vh] rounded-3xl " id="position-card"   >
                 <div className="Ranks pt-3 pl-3 flex flex-row gap-1 text-white text-xs relative " >
                     <img src={Mainlogo} className=" w-[30px] lg:w-[2vw] " />
 
