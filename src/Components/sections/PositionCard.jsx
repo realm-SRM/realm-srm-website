@@ -29,7 +29,7 @@ export default function PositionCard({ domain, name, tagline, image, github, ins
     };
 
     return(
-            <div className="pos-card bg-[#0E1218] border-black border-8 w-[300px] h-[40vh] lg:w-[19vw] lg:h-[43vh] xl:w-[17vw] xl:h-[43vh] rounded-3xl " id="position-card"   >
+            <div className="pos-card bg-[#0E1218] border-black border-8 w-[250px] h-[40vh] lg:w-[19vw] lg:h-[43vh] xl:w-[17vw] xl:h-[43vh] rounded-3xl " id="position-card"   >
                 <div className="Ranks pt-3 pl-3 flex flex-row gap-1 text-white text-xs relative " >
                     <img src={Mainlogo} className=" w-[30px] lg:w-[2vw] " />
 
@@ -48,7 +48,7 @@ export default function PositionCard({ domain, name, tagline, image, github, ins
 
                 </div>
                 
-                <div className="PhotoTag pt-5 pl-1 pr-1 flex flex-row items-end">
+                <div className="PhotoTag pt-0 lg:pt-5 pl-1 pr-1 flex flex-row items-end">
                     <div className="pt-1 flex flex-col gap-2 w-[40vw] h-[12vh] lg:w-[10vw] lg:h-[12vh] bg-[#3E3838] bg-opacity-30 relative -mr-24 z-20 rounded-[40px]">
                         <div className="flex flex-col items-center justify-center h-full px-4 -mt-1">
                             <p className="text-white text-sm text-nowrap">{name}</p>
