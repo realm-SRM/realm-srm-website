@@ -7,11 +7,66 @@ import { BackgroundBeamsWithCollision } from "./sections/ui/background-beams-wit
 const Accelerators = () => {
 
   const membersList = {
-    "Acc 1": { name: "Acc1", image: dummyImage },
-    "Acc 2": { name: "Acc2", image: dummyImage },
-    "Acc 3": { name: "Acc3", image: dummyImage },
-    "Acc 4": { name: "Acc4", image: dummyImage },
-    "Acc 5": { name: "Acc5", image: dummyImage }
+    "Acc 1": { 
+      name: "Acc1", 
+      image: dummyImage, 
+      pfp: dummyImage,
+      tagline: "Code smarter, Not harder", 
+      skill: ["Eat", "Sleep", "Repeat" ], 
+      music: "Laga do", 
+      insta: "Insta", 
+      X: "X", 
+      github: "github", 
+      linkedin: "Linkein" 
+    },
+    "Acc 2": { 
+      name: "Acc2", 
+      image: dummyImage, 
+      pfp: dummyImage,
+      tagline: "Code smarter, Not harder", 
+      skill: ["Eat", "Sleep", "Repeat" ], 
+      music: "Laga do", 
+      insta: "Insta", 
+      X: "X", 
+      github: "github", 
+      linkedin: "Linkein" 
+    },
+    "Acc 3": { 
+      name: "Acc3", 
+      image: dummyImage, 
+      pfp: dummyImage,
+      tagline: "Code smarter, Not harder", 
+      skill: ["Eat", "Sleep", "Repeat" ], 
+      music: "Laga do", 
+      insta: "Insta", 
+      X: "X", 
+      github: "github", 
+      linkedin: "Linkein" 
+    },
+    "Acc 4": { 
+      name: "Acc4", 
+      image: dummyImage, 
+      pfp: dummyImage,
+      tagline: "Code smarter, Not harder", 
+      skill: ["Eat", "Sleep", "Repeat" ], 
+      music: "Laga do", 
+      insta: "Insta", 
+      X: "X", 
+      github: "github", 
+      linkedin: "Linkein" 
+    },
+    "Acc 5": { 
+      name: "Acc5", 
+      image: dummyImage, 
+      pfp: dummyImage,
+      tagline: "Code smarter, Not harder", 
+      skill: ["Eat", "Sleep", "Repeat" ], 
+      music: "Laga do", 
+      insta: "Insta", 
+      X: "X", 
+      github: "github", 
+      linkedin: "Linkein" 
+    }
   };
 
 
@@ -68,7 +123,7 @@ const Accelerators = () => {
   return (
     <BackgroundBeamsWithCollision>
     <div className='pt-24 px-10 h-screen ' >
-      <div className="flex flex-row justify-between gap-10 h-[45vh] " >
+      <div className="flex flex-row justify-between gap-10 h-[50vh] " >
           <div className='Content' >
 
             <p className='text-4xl text-[#FFDCC1] font-bold mb-4 ' >Accelerator</p>
@@ -100,7 +155,7 @@ const Accelerators = () => {
               className='absolute'
               >
               <div className='' >
-                <img src={membersList[members[index]].image} className='w-60 hover:brightness-110 transition ease-in-out ' />
+                <img src={membersList[members[index]].image} className='w-64 hover:brightness-125 transition ease-in-out ' />
               </div>
               </motion.div>
             ) )}
@@ -108,7 +163,7 @@ const Accelerators = () => {
             
           </div>
 
-          <div className='ProfileCard w-[15vw] ' >
+          <div className='ProfileCard w-[18vw] ' >
               <AccCard />
           </div>
 
