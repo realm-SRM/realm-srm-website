@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion';
 import dummyImage from '../assets/dummyImage.png'
+import Standby from '../assets/Standby.png'
 import AccCard from './sections/AccCard'
 import { BackgroundBeamsWithCollision } from "./sections/ui/background-beams-with-collision"
 
@@ -8,64 +9,59 @@ const Accelerators = () => {
 
   const membersList = {
     "Acc 1": { 
-      name: "Acc1", 
+      name: "Someone Careless", 
       image: dummyImage, 
-      pfp: dummyImage,
+      pfp: Standby,
       tagline: "Code smarter, Not harder", 
       skill: ["Eat", "Sleep", "Repeat" ], 
-      music: "Laga do", 
-      insta: "Insta", 
-      X: "X", 
-      github: "github", 
-      linkedin: "Linkein" 
+      music: "https://soundcloud.com/rana-faseeh-ullah/honey-singh-choot-vol-1-dance?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing", 
+      insta: "https://instagram.com", 
+      github: "https://github.com", 
+      linkedin: "https://linkedin.in" 
     },
     "Acc 2": { 
-      name: "Acc2", 
+      name: "Careless", 
       image: dummyImage, 
-      pfp: dummyImage,
-      tagline: "Code smarter, Not harder", 
-      skill: ["Eat", "Sleep", "Repeat" ], 
-      music: "Laga do", 
-      insta: "Insta", 
-      X: "X", 
-      github: "github", 
-      linkedin: "Linkein" 
+      pfp: Standby,
+      tagline: "Work smarter, Not harder", 
+      skill: ["HTML", "VSCODE", "Napping" ], 
+      music: "https://soundcloud.com/akise-mn/one-piece-ost-overtaken?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing", 
+      insta: "https://instagram.com", 
+      github: "https://github.com", 
+      linkedin: "https://linkedin.in" 
     },
     "Acc 3": { 
-      name: "Acc3", 
+      name: "Even More Careless", 
       image: dummyImage, 
-      pfp: dummyImage,
-      tagline: "Code smarter, Not harder", 
-      skill: ["Eat", "Sleep", "Repeat" ], 
-      music: "Laga do", 
-      insta: "Insta", 
-      X: "X", 
-      github: "github", 
-      linkedin: "Linkein" 
+      pfp: Standby,
+      tagline: "Work Smart", 
+      skill: ["Boostrap", "Tailwind", "CSS" ], 
+      music: "https://soundcloud.com/farshad-ahmad/guzarish-ghajini?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing", 
+      insta: "https://instagram.com", 
+      github: "https://github.com", 
+      linkedin: "https://linkedin.in" 
     },
     "Acc 4": { 
-      name: "Acc4", 
+      name: "Carefree", 
       image: dummyImage, 
-      pfp: dummyImage,
-      tagline: "Code smarter, Not harder", 
-      skill: ["Eat", "Sleep", "Repeat" ], 
-      music: "Laga do", 
-      insta: "Insta", 
-      X: "X", 
-      github: "github", 
-      linkedin: "Linkein" 
+      pfp: Standby,
+      tagline: "Be Carefree", 
+      skill: ["Eat", "Care", "Dont Care" ], 
+      music: "https://soundcloud.com/racso2099/the-less-i-know-the-better-vinyl?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing", 
+      insta: "https://instagram.com", 
+      github: "https://github.com", 
+      linkedin: "https://linkedin.in" 
     },
     "Acc 5": { 
-      name: "Acc5", 
+      name: "Hope no one Cares", 
       image: dummyImage, 
-      pfp: dummyImage,
-      tagline: "Code smarter, Not harder", 
+      pfp: Standby,
+      tagline: "Be Caring", 
       skill: ["Eat", "Sleep", "Repeat" ], 
-      music: "Laga do", 
-      insta: "Insta", 
-      X: "X", 
-      github: "github", 
-      linkedin: "Linkein" 
+      music: "https://soundcloud.com/boogieda-king089/borderline-tame-impala-sped-up?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing", 
+      insta: "https://instagram.com", 
+      github: "https://github.com", 
+      linkedin: "https://linkedin.in" 
     }
   };
 
@@ -155,7 +151,7 @@ const Accelerators = () => {
               className='absolute'
               >
               <div className='' >
-                <img src={membersList[members[index]].image} className='w-64 hover:brightness-125 transition ease-in-out ' />
+                <img src={membersList[members[index]].image} className='w-60 hover:brightness-125 transition ease-in-out ' />
               </div>
               </motion.div>
             ) )}
@@ -163,11 +159,26 @@ const Accelerators = () => {
             
           </div>
 
-          <div className='ProfileCard w-[18vw] ' >
-              <AccCard />
+          <div className='ProfileCard h-[53vh] w-[18vw] ' >
+              <AccCard
+              name = {membersList[members[2]].name}
+              pfp = {membersList[members[2]].pfp}
+              tagline = {membersList[members[2]].tagline}
+              skill1 = {membersList[members[2]].skill[0]}
+              skill2 = {membersList[members[2]].skill[1]}
+              skill3 = {membersList[members[2]].skill[2]}
+              music = {membersList[members[2]].music}
+              insta = {membersList[members[2]].insta}
+              github = {membersList[members[2]].github}
+              linkedin = {membersList[members[2]].linkedin} 
+              />
           </div>
 
       </div>
+          <div className='pt-10 ' >
+          <hr className=' bg-[#F15191] ' />
+          </div>
+
     </div>
     </BackgroundBeamsWithCollision>
   )

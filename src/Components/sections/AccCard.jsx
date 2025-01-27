@@ -1,4 +1,3 @@
-import XIcon from '@mui/icons-material/X';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -11,9 +10,9 @@ import PauseIcon from '@mui/icons-material/Pause';
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 
-export default function AccCard(){
+export default function AccCard(props){
 
-    const [isPlaying, setIsPlaying] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(true);
     const [volume, setVolume] = useState(0.5);  // Initial volume set to 50%
     const [muted, setMuted] = useState(false);  // Initially not muted
 
@@ -43,21 +42,21 @@ export default function AccCard(){
             <div className='Profile ' >
 
                 <div className='Photo flex justify-center ' >
-                    <img src={Mainlogo} className='w-[120px]  '  />
+                    <img src={props.pfp} className='w-[120px] h-[120px]  '  />
                 </div>
 
                 <div className='Name flex justify-center text-white text-md ' >
-                    Somebody Careless
+                    {props.name}
                 </div>
 
                 <div className='Tagline text-center text-[#A79AE0] text-xs ' >
-                    Somebody put some tagline here
+                    {props.tagline}
                 </div>
 
                 <div className='flex flex-col text-center text-sm text-white justify-center ' >
-                    <p>Eat</p>
-                    <p>Sleep</p>
-                    <p>Repeat</p>
+                    <p>{props.skill1}</p>
+                    <p>{props.skill2}</p>
+                    <p>{props.skill3}</p>
                 </div>
 
             </div>
@@ -67,7 +66,7 @@ export default function AccCard(){
             <div className='MusicThingy flex flex-row justify-center gap-5 text-white mb-4 ' >
                     <ReactPlayer 
                     className="pb-20 hidden" 
-                    url="https://soundcloud.com/rana-faseeh-ullah/honey-singh-choot-vol-1-dance?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" 
+                    url={props.music} 
                     width="10vw" 
                     playing={isPlaying} 
                     controls={true}
@@ -97,10 +96,9 @@ export default function AccCard(){
             </div>
 
             <div className='Socials flex justify-center text-white gap-5 ' >
-                    <a href="" target="_blank"><button><GitHubIcon /></button></a>
-                    <a href="" target="_blank"><button><InstagramIcon /></button></a>
-                    <a href="" target="_blank"><button><LinkedInIcon /></button></a>
-                    <a href="" target="_blank"><button><XIcon /></button></a>
+                    <a href={props.github} target="_blank"><button><GitHubIcon /></button></a>
+                    <a href={props.insta} target="_blank"><button><InstagramIcon /></button></a>
+                    <a href={props.linkedin} target="_blank"><button><LinkedInIcon /></button></a>
                     <button ><ShareIcon /></button>
             </div>
 
