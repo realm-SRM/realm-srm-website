@@ -3,9 +3,41 @@ import { motion, AnimatePresence } from 'framer-motion';
 import dummyImage from '../assets/dummyImage.png'
 import Standby from '../assets/Standby.png'
 import AccCard from './sections/AccCard'
+import ProjectCard from './sections/ProjectCard';
 import { BackgroundBeamsWithCollision } from "./sections/ui/background-beams-with-collision"
 
 const Accelerators = () => {
+
+  const projects = {
+    "Project 1": {
+      name: "Project 1",
+      description: "Some Random Text to talk about the Project And tell people how cool the project is so people like or club",
+      image: Standby,
+      repo: "https://github.com/realm-SRM/realm-srm-website",
+      projectLink: "https://render-deployement-test.vercel.app"
+    },
+    "Project 2": {
+      name: "Project 2",
+      description: "Some more random text which will make you like our club even more",
+      image: Standby,
+      repo: "https://github.com/realm-SRM/realm-srm-website",
+      projectLink: "https://render-deployement-test.vercel.app"
+    },
+    "Project 3": {
+      name: "Project 3",
+      description: "Some more project related stuff AIML, BlockChain (cool words ngl)",
+      image: Standby,
+      repo: "https://github.com/realm-SRM/realm-srm-website",
+      projectLink: "https://render-deployement-test.vercel.app"
+    },
+    "Project 4": {
+      name: "Project 4",
+      description: "BEst project of our club approved by google.",
+      image: Standby,
+      repo: "https://github.com/realm-SRM/realm-srm-website",
+      projectLink: "https://render-deployement-test.vercel.app"
+    }
+  }
 
   const membersList = {
     "Acc 1": { 
@@ -74,13 +106,11 @@ const Accelerators = () => {
     "Acc 5"
   ]
 
-  console.log(parseInt(initialMembers.length/2))
 
   const [clickedIndex, setClickedIndex] = useState(2);
   const [members, setMembers] = useState(initialMembers);
 
   const handleClick = (index) => {
-    console.log(index);
     setClickedIndex(index);
     centerItem(index);
   }
@@ -97,7 +127,6 @@ const Accelerators = () => {
     } else if (itemIndex < centerIndex) {
       popBot(itemIndex);
     }
-    console.log(members);
   };
 
   const popTop = (itemIndex) => {
@@ -120,18 +149,18 @@ const Accelerators = () => {
 
   return (
     <BackgroundBeamsWithCollision>
-    <div className='pt-24 px-10 h-screen ' >
+    <div className='pt-24 px-5 xl:px-10 pb-36 h-screen ' >
       <div className="flex flex-row justify-between gap-10 h-[50vh] " >
           <div className='Content' >
 
             <p className='text-4xl text-[#FFDCC1] font-bold mb-4 ' >Accelerator</p>
-            <p className="text-[#FFFFFF] text-xl w-[20vw] " >
+            <p className="text-[#FFFFFF] text-lg xl:text-xl w-[20vw] " >
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis.
             </p>
 
           </div>
 
-          <div className='PhotoScroller w-[20vw] flex ' >
+          <div className='PhotoScroller w-[15vw] xl:w-[20vw] flex ' >
 
             {members.map((member, index) => (
               <motion.div
@@ -140,7 +169,7 @@ const Accelerators = () => {
               layout
               animate={{
                 scale: index === parseInt(initialMembers.length/2) ? 1.15 : index === 0 || index === initialMembers.length - 1 ? 0.9 : 1,
-                x: index === parseInt(initialMembers.length/2) ? 0 : (2 - index)*150,
+                x: index === parseInt(initialMembers.length/2) ? 0 : (2 - index)*110,
                 zIndex: index === parseInt(initialMembers.length/2) ? 10 : index === 0 || index === initialMembers.length - 1 ? 7 : 8 ,
                 // filter: index === parseInt(initialMembers.length/2) ? 'brightness(1.25)' : 'brightness(1)',
               }}
@@ -153,7 +182,7 @@ const Accelerators = () => {
               className='absolute'
               >
               <div className='' >
-                <img src={membersList[members[index]].image} className='w-60 hover:brightness-125 transition ease-in-out ' />
+                <img src={membersList[members[index]].image} className=' w-44 xl:w-60 hover:brightness-125 transition ease-in-out ' />
               </div>
               </motion.div>
             ) )}
@@ -193,6 +222,22 @@ const Accelerators = () => {
           <div className='pt-10 ' >
           <hr className=' bg-[#F15191] ' />
           </div>
+
+          <p className='text-[#FFDCC1] font-bold text-4xl text-center pt-4 ' >Projects</p>
+        
+        <div className='flex gap-5 justify-center mt-6 h-[55vh] ' >
+              {Object.values(projects).map((project) => (
+                <ProjectCard
+                key = {project.name}
+                name = {project.name}
+                description = {project.description}
+                image = {project.image}
+                repo = {project.repo}
+                projectLink = {project.projectLink}
+                />
+              ))}
+
+        </div>
 
     </div>
     </BackgroundBeamsWithCollision>
