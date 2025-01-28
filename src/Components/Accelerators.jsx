@@ -171,7 +171,7 @@ const Accelerators = () => {
                 scale: index === parseInt(initialMembers.length/2) ? 1.15 : index === 0 || index === initialMembers.length - 1 ? 0.9 : 1,
                 x: index === parseInt(initialMembers.length/2) ? 0 : (2 - index)*110,
                 zIndex: index === parseInt(initialMembers.length/2) ? 10 : index === 0 || index === initialMembers.length - 1 ? 7 : 8 ,
-                // filter: index === parseInt(initialMembers.length/2) ? 'brightness(1.25)' : 'brightness(1)',
+                filter: index === parseInt(initialMembers.length/2) ? 'brightness(1)' : 'brightness(0.5)',
               }}
               transition={{
                 duration: 0.8,
