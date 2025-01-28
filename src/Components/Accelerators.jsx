@@ -9,7 +9,7 @@ const Accelerators = () => {
 
   const membersList = {
     "Acc 1": { 
-      name: "Someone Careless", 
+      name: "1", 
       image: dummyImage, 
       pfp: Standby,
       tagline: "Code smarter, Not harder", 
@@ -20,7 +20,7 @@ const Accelerators = () => {
       linkedin: "https://linkedin.in" 
     },
     "Acc 2": { 
-      name: "Careless", 
+      name: "2", 
       image: dummyImage, 
       pfp: Standby,
       tagline: "Work smarter, Not harder", 
@@ -31,7 +31,7 @@ const Accelerators = () => {
       linkedin: "https://linkedin.in" 
     },
     "Acc 3": { 
-      name: "Even More Careless", 
+      name: "3", 
       image: dummyImage, 
       pfp: Standby,
       tagline: "Work Smart", 
@@ -42,7 +42,7 @@ const Accelerators = () => {
       linkedin: "https://linkedin.in" 
     },
     "Acc 4": { 
-      name: "Carefree", 
+      name: "4", 
       image: dummyImage, 
       pfp: Standby,
       tagline: "Be Carefree", 
@@ -53,7 +53,7 @@ const Accelerators = () => {
       linkedin: "https://linkedin.in" 
     },
     "Acc 5": { 
-      name: "Hope no one Cares", 
+      name: "5", 
       image: dummyImage, 
       pfp: Standby,
       tagline: "Be Caring", 
@@ -80,6 +80,7 @@ const Accelerators = () => {
   const [members, setMembers] = useState(initialMembers);
 
   const handleClick = (index) => {
+    console.log(index);
     setClickedIndex(index);
     centerItem(index);
   }
@@ -96,6 +97,7 @@ const Accelerators = () => {
     } else if (itemIndex < centerIndex) {
       popBot(itemIndex);
     }
+    console.log(members);
   };
 
   const popTop = (itemIndex) => {
@@ -172,16 +174,16 @@ const Accelerators = () => {
               }}
               >
                   <AccCard
-                  name={membersList[members[clickedIndex]].name}
-                  pfp={membersList[members[clickedIndex]].pfp}
-                  tagline={membersList[members[clickedIndex]].tagline}
-                  skill1={membersList[members[clickedIndex]].skill[0]}
-                  skill2={membersList[members[clickedIndex]].skill[1]}
-                  skill3={membersList[members[clickedIndex]].skill[2]}
-                  music={membersList[members[clickedIndex]].music}
-                  insta={membersList[members[clickedIndex]].insta}
-                  github={membersList[members[clickedIndex]].github}
-                  linkedin={membersList[members[clickedIndex]].linkedin} 
+                  name={membersList[members[2]].name}
+                  pfp={membersList[members[2]].pfp}
+                  tagline={membersList[members[2]].tagline}
+                  skill1={membersList[members[2]].skill[0]}
+                  skill2={membersList[members[2]].skill[1]}
+                  skill3={membersList[members[2]].skill[2]}
+                  music={membersList[members[2]].music}
+                  insta={membersList[members[2]].insta}
+                  github={membersList[members[2]].github}
+                  linkedin={membersList[members[2]].linkedin} 
                   />
               </motion.div>
             </AnimatePresence>
