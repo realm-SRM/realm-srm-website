@@ -45,17 +45,32 @@ const nodes = [
 ];
 
 const edges = [
-  { id: "e1-2", source: "1", target: "2", animated: true, markerEnd: { type: "arrow", width: 15, height: 15 } },
-  { id: "e1-3", source: "2", target: "3", animated: true, markerEnd: { type: "arrow", width: 15, height: 15 } },
-  { id: "e1-4", source: "2", target: "4", animated: true, markerEnd: { type: "arrow", width: 15, height: 15 } },
+  {
+    id: "e1-2",
+    source: "1",
+    target: "2",
+    animated: true,
+    markerEnd: { type: "arrow", width: 15, height: 15 },
+  },
+  {
+    id: "e1-3",
+    source: "2",
+    target: "3",
+    animated: true,
+    markerEnd: { type: "arrow", width: 15, height: 15 },
+  },
+  {
+    id: "e1-4",
+    source: "2",
+    target: "4",
+    animated: true,
+    markerEnd: { type: "arrow", width: 15, height: 15 },
+  },
 ];
 
 const OurClub = () => {
   const [hoveredNode, setHoveredNode] = useState(null);
   const visionRef = useRef(null);
-
- 
-  
 
   const handleMouseEnter = (nodeId) => {
     setHoveredNode(nodeId);
@@ -86,8 +101,7 @@ const OurClub = () => {
           </ReactFlow>
         </div>
 
-        <VisionSection/>
-       
+        <VisionSection />
       </div>
     <Calendersection/>
     </
