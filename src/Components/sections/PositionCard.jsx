@@ -56,8 +56,8 @@ export default function PositionCard({ domain, name, tagline, image, github, ins
                         </div>
                     </div>
                     <div className="flex flex-1 justify-end mb-4 relative z-10">   
-                        <iframe src={image || Standby} className=" w-[20vh] h-[20vh] lg:w-[20vh] lg:h-[20vh] rounded-full bg-blue-950 border-[10px] border-[#8257E5]">
-                            </iframe>
+                        <img src={image || Standby} className=" w-[20vh] h-[20vh] lg:w-[20vh] lg:h-[20vh] rounded-full bg-blue-950 border-[7px] border-[#8257E5]">
+                            </img>
                     </div>
                 </div>
 

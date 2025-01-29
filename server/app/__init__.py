@@ -17,6 +17,6 @@ def create_app():
     app.register_blueprint(joinus_routes, url_prefix="/api")
 
     # Initialize scheduled task
-    ScheduledTask(1800)  # 1800 seconds aka 1/2 hour
+    ScheduledTask(900)  # 900 seconds aka 15 MINS
 
     return app

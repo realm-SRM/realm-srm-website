@@ -61,7 +61,7 @@ const Navbar = () => {
   </li>
   <li>
     <Link
-      to="/about"
+      to="/ourclub"
       className="block py-2 lg:py-0 hover:text-pink-500 transition duration-300"
       onClick={() => setIsMenuOpen(false)}
     >
