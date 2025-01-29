@@ -103,7 +103,7 @@ const OurClub = () => {
 
         <VisionSection />
       </div>
-    <Calendersection/>
+      <Benefits />
     </>
   );
 };
