@@ -1,6 +1,6 @@
 export default function ProjectCard(props) {
     return(
-        <div className="w-[250px] lg:w-[18vw] bg-[#39477F] h-full rounded-2xl shadow-2xl px-2 flex flex-col transition hover:-translate-y-4 hover:ease-in-out " >
+        <div className="w-[250px] lg:w-[18vw] bg-[#39477F] h-full rounded-2xl shadow-2xl px-2 flex flex-col transition lg:hover:-translate-y-4 lg:hover:ease-in-out " >
             <div className="Image flex justify-center pt-5 " >
                 <img src={props.image} className="w-[100px] lg:w-[100px] lg:h-[100px] xl:w-[120px] xl:h-[120px] rounded-full " />
             </div>

@@ -6,39 +6,40 @@ import AccCard from './sections/AccCard'
 import ProjectCard from './sections/ProjectCard';
 import { BackgroundBeamsWithCollision } from "./sections/ui/background-beams-with-collision";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { useDrag } from '@use-gesture/react';
 
 const Accelerators = () => {
 
-  const projects = {
-    "Project 1": {
+  const projects = [
+    {
       name: "Project 1",
       description: "Some Random Text to talk about the Project And tell people how cool the project is so people like or club",
       image: Standby,
       repo: "https://github.com/realm-SRM/realm-srm-website",
       projectLink: "https://render-deployement-test.vercel.app"
     },
-    "Project 2": {
+    {
       name: "Project 2",
       description: "Some more random text which will make you like our club even more",
       image: Standby,
       repo: "https://github.com/realm-SRM/realm-srm-website",
       projectLink: "https://render-deployement-test.vercel.app"
     },
-    "Project 3": {
+    {
       name: "Project 3",
       description: "Some more project related stuff AIML, BlockChain (cool words ngl)",
       image: Standby,
       repo: "https://github.com/realm-SRM/realm-srm-website",
       projectLink: "https://render-deployement-test.vercel.app"
     },
-    "Project 4": {
+    {
       name: "Project 4",
       description: "BEst project of our club approved by google.",
       image: Standby,
       repo: "https://github.com/realm-SRM/realm-srm-website",
       projectLink: "https://render-deployement-test.vercel.app"
     }
-  }
+  ]
 
   const membersList = {
     "Acc 1": { 
@@ -111,6 +112,33 @@ const Accelerators = () => {
   const [clickedIndex, setClickedIndex] = useState(2);
   const [members, setMembers] = useState(initialMembers);
   const [currentIndex, setCurrentIndex] = useState(0);
+  
+  const bind = useDrag((state) => {
+    const threshold = 100;
+    
+    if (state.offset[0] < -50) {
+      nextCard();
+    }
+    else if (state.offset[0] > 50) {
+      prevCard();
+    }
+  
+    // Optionally: Reset position once the drag is complete
+    if (state.last) {
+      setCurrentIndex((prevIndex) => prevIndex); // Trigger re-render or update to reset position
+    }
+  }, {
+    bounds: { left: -75, right: 75 }, // Could adjust bounds dynamically
+    enabled: true, // Ensure the drag gesture is always enabled
+  });
+
+  const nextCard = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length);
+  };
+
+  const prevCard = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length);
+  };
 
   const handleClick = (index) => {
     setClickedIndex(index);
@@ -147,10 +175,6 @@ const Accelerators = () => {
       dummyMembers.unshift(lastItem);
     }
     setMembers(dummyMembers);
-  };
-
-  const goToNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % Object.keys(projects).length);
   };
 
   return (
@@ -279,32 +303,42 @@ const Accelerators = () => {
 
         </div>
 
-        <div className='flex lg:hidden gap-5 justify-center mt-6 h-[380px] ' >
-              {Object.values(projects).map((project, index) => (
-                <div
-                style={{
-                  display: index === currentIndex ? 'block' : 'none',
-                }}
-                >
-                <ProjectCard
-                key = {project.name}
-                name = {project.name}
-                description = {project.description}
-                image = {project.image}
-                repo = {project.repo}
-                projectLink = {project.projectLink}
-                />
-                </div>
-              ))}
-
-          <button
-            onClick={goToNext}
-            className="absolute right-4 bottom-52 transform opacity-50 -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full z-10"
-          >
-            <ArrowForwardIosIcon />
-          </button>  
-
-        </div>
+        <div style={{ touchAction: 'none' }} {...bind()} className='relative overflow-hidden flex lg:hidden gap-5 justify-center mt-6 h-[380px]'>
+  <motion.div
+    key={currentIndex}
+    initial={{ opacity: 0, x: 100 }}
+    animate={{ opacity: 1, x: 0 }}
+    exit={{ opacity: 0, x: -100 }}
+    transition={{ type: 'spring', stiffness: 300 }}
+    style={{
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      background: '#141930',
+      borderRadius: '10px',
+    }}
+  >
+    {projects.map((project, index) => (
+      <div
+        style={{
+          display: index === currentIndex ? 'block' : 'none',
+        }}
+        key={project.name}
+      >
+        <ProjectCard
+          name={project.name}
+          description={project.description}
+          image={project.image}
+          repo={project.repo}
+          projectLink={project.projectLink}
+        />
+      </div>
+    ))}
+  </motion.div>
+</div>
 
     </div>
     </BackgroundBeamsWithCollision>
