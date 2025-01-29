@@ -1,6 +1,7 @@
 // import React, { useState } from "react";
 // import ReactFlow, { Background, Controls } from "reactflow";
 // import "reactflow/dist/style.css";
+// import Benefits from "./sections/Benefits";
 
 // const defaultNodeStyles = {
 //   background: "#1e1e2e",
@@ -16,14 +17,13 @@
 //   background: "#282a36",
 //   border: "2px solid #ff79c6",
 //   transform: "scale(1.05)",
-// };
+// };  
 
 // const nodes = [
 //   { id: "1", data: { label: "Director" }, position: { x: 400, y: 0 } },
 //   { id: "2", data: { label: "President" }, position: { x: 400, y: 75 } },
 //   { id: "3", data: { label: "Project Lead" }, position: { x: 150, y: 150 } },
 //   { id: "4", data: { label: "Tech Lead" }, position: { x: 650, y: 150 } },
-
 //   {
 //     id: "small-parent",
 //     position: { x: 225, y: 250 },
@@ -40,7 +40,6 @@
 //   { id: "5", data: { label: "Secretary 1" }, position: { x: 235, y: 280 } },
 //   { id: "6", data: { label: "Secretary 2" }, position: { x: 400, y: 280 } },
 //   { id: "7", data: { label: "Secretary 3" }, position: { x: 565, y: 280 } },
-
 //   {
 //     id: "big-parent",
 //     position: { x: -75, y: 450 },
@@ -58,7 +57,7 @@
 //     id: "8",
 //     data: { label: "Events" },
 //     position: { x: -60, y: 475 },
-//     style: { width: 200, height: 350 }, 
+//     style: { width: 200, height: 350 },
 //   },
 //   { id: "19", data: { label: "Emcee" }, position: { x: -35, y: 520 } },
 //   { id: "20", data: { label: "Photography" }, position: { x: -35, y: 580 } },
@@ -118,6 +117,7 @@
 //     style: {
 //       width: 200,
 //       height: 250,
+//       fontSize: "20px", // Increased font size
 //       textAlign: "center",
 //       display: "flex",
 //       justifyContent: "center",
@@ -140,12 +140,12 @@
 // ];
 
 // const edges = [
-//   { id: "e1-2", source: "1", target: "2", animated: true },
-//   { id: "e1-3", source: "2", target: "3", animated: true },
-//   { id: "e1-4", source: "2", target: "4", animated: true },
-//   { id: "e1-5", source: "3", target: "small-parent", animated: true },
-//   { id: "e1-6", source: "4", target: "small-parent", animated: true },
-//   { id: "e1-7", source: "small-parent", target: "big-parent", animated: true },
+//   { id: "e1-2", source: "1", target: "2", animated: true, markerEnd: { type: "arrow", width: 15, height: 15 } }, // Arrow size increased
+//   { id: "e1-3", source: "2", target: "3", animated: true, markerEnd: { type: "arrow", width: 15, height: 15 } },
+//   { id: "e1-4", source: "2", target: "4", animated: true, markerEnd: { type: "arrow", width: 15, height: 15 } },
+//   { id: "e1-5", source: "3", target: "small-parent", animated: true, markerEnd: { type: "arrow", width: 15, height: 15 } },
+//   { id: "e1-6", source: "4", target: "small-parent", animated: true, markerEnd: { type: "arrow", width: 15, height: 15 } },
+//   { id: "e1-7", source: "small-parent", target: "big-parent", animated: true, markerEnd: { type: "arrow", width: 15, height: 15 } },
 // ];
 
 // const OurClub = () => {
@@ -164,19 +164,22 @@
 //     style: {
 //       ...defaultNodeStyles,
 //       ...(hoveredNode === node.id ? highlightNodeStyles : {}),
-//       ...node.style, 
+//       ...node.style,
 //     },
 //     onMouseEnter: () => handleMouseEnter(node.id),
 //     onMouseLeave: handleMouseLeave,
 //   }));
 
 //   return (
+//     <>
 //     <div style={{ height: "100vh", background: "#1e1e2e" }}>
 //       <ReactFlow nodes={styledNodes} edges={edges} fitView>
 //         <Background color="#aaa" gap={16} />
 //         <Controls />
 //       </ReactFlow>
 //     </div>
+//     <Benefits />
+//     </>
 //   );
 // };
 
@@ -202,11 +205,11 @@ const highlightNodeStyles = {
   background: "#282a36",
   border: "2px solid #ff79c6",
   transform: "scale(1.05)",
-};  
+};
 
 const nodes = [
-  { id: "1", data: { label: "Director" }, position: { x: 400, y: 0 } },
-  { id: "2", data: { label: "President" }, position: { x: 400, y: 75 } },
+  { id: "1", data: { label: "Director" }, position: { x: 400, y: 15 } },
+  { id: "2", data: { label: "President" }, position: { x: 400, y: 80 } },
   { id: "3", data: { label: "Project Lead" }, position: { x: 150, y: 150 } },
   { id: "4", data: { label: "Tech Lead" }, position: { x: 650, y: 150 } },
   {
@@ -302,7 +305,7 @@ const nodes = [
     style: {
       width: 200,
       height: 250,
-      fontSize: "20px", // Increased font size
+      fontSize: "20px",
       textAlign: "center",
       display: "flex",
       justifyContent: "center",
@@ -312,10 +315,10 @@ const nodes = [
   {
     id: "18",
     data: { label: "Dev Rel Team" },
-    position: { x: 1100, y: 0 },
+    position: { x: 1100, y: 25 },
     style: {
       width: 100,
-      height: 850,
+      height: 825,
       textAlign: "center",
       display: "flex",
       justifyContent: "center",
@@ -325,7 +328,7 @@ const nodes = [
 ];
 
 const edges = [
-  { id: "e1-2", source: "1", target: "2", animated: true, markerEnd: { type: "arrow", width: 15, height: 15 } }, // Arrow size increased
+  { id: "e1-2", source: "1", target: "2", animated: true, markerEnd: { type: "arrow", width: 15, height: 15 } },
   { id: "e1-3", source: "2", target: "3", animated: true, markerEnd: { type: "arrow", width: 15, height: 15 } },
   { id: "e1-4", source: "2", target: "4", animated: true, markerEnd: { type: "arrow", width: 15, height: 15 } },
   { id: "e1-5", source: "3", target: "small-parent", animated: true, markerEnd: { type: "arrow", width: 15, height: 15 } },
@@ -357,13 +360,22 @@ const OurClub = () => {
 
   return (
     <>
-    <div style={{ height: "100vh", background: "#1e1e2e" }}>
-      <ReactFlow nodes={styledNodes} edges={edges} fitView>
-        <Background color="#aaa" gap={16} />
-        <Controls />
-      </ReactFlow>
-    </div>
-    <Benefits />
+      <div style={{ height: "120vh", background: "#1e1e2e", paddingBottom: "40px" }}>
+        <ReactFlow
+          nodes={styledNodes}
+          edges={edges}
+          fitView
+          fitViewOptions={{ padding: 0.5, maxZoom: 0.8, minZoom: 0.8 }}
+          panOnDrag={false} // Enables scrolling by dragging
+          zoomOnScroll={false}
+          zoomOnPinch={false}
+          nodesDraggable={false}
+        >
+          <Background color="#aaa" gap={16} />
+          <Controls />
+        </ReactFlow>
+      </div>
+      <Benefits />
     </>
   );
 };
