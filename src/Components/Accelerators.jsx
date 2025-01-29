@@ -128,7 +128,7 @@ const Accelerators = () => {
       setCurrentIndex((prevIndex) => prevIndex); // Trigger re-render or update to reset position
     }
   }, {
-    bounds: { left: -75, right: 75 }, // Could adjust bounds dynamically
+    bounds: { left: -50, right: 50 }, // Could adjust bounds dynamically
     enabled: true, // Ensure the drag gesture is always enabled
   });
 
