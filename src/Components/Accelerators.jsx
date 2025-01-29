@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion';
 import dummyImage from '../assets/dummyImage.png'
 import Standby from '../assets/Standby.png'
@@ -7,6 +7,7 @@ import ProjectCard from './sections/ProjectCard';
 import { BackgroundBeamsWithCollision } from "./sections/ui/background-beams-with-collision";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useDrag } from '@use-gesture/react';
+import { useSpring, animated } from 'react-spring';
 
 const Accelerators = () => {
 
@@ -112,32 +113,33 @@ const Accelerators = () => {
   const [clickedIndex, setClickedIndex] = useState(2);
   const [members, setMembers] = useState(initialMembers);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [swiped, setSwiped] = useState(false); 
   
   const bind = useDrag((state) => {
-    const threshold = 100;
-    
-    if (state.offset[0] < -50) {
-      nextCard();
-    }
-    else if (state.offset[0] > 50) {
-      prevCard();
-    }
-  
-    // Optionally: Reset position once the drag is complete
+    const threshold = 100; // Threshold to trigger swipe
+    const swipeDirection = state.offset[0] < 0 ? 'left' : 'right'; // Determine swipe direction
+
+    // If the drag has ended and the swipe distance is beyond the threshold
     if (state.last) {
-      setCurrentIndex((prevIndex) => prevIndex); // Trigger re-render or update to reset position
+      if (Math.abs(state.offset[0]) > threshold) {
+        if (swipeDirection === 'left') {
+          nextCard();
+        } else {
+          prevCard();
+        }
+      }
     }
   }, {
-    bounds: { left: -50, right: 50 }, // Could adjust bounds dynamically
-    enabled: true, // Ensure the drag gesture is always enabled
+    bounds: { left: -200, right: 200 }, // Set bounds for drag
+    triggerAllEvents: true, // Trigger events on drag
   });
 
   const nextCard = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length); // Move to the next project
   };
 
   const prevCard = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length);
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length); // Move to the previous project
   };
 
   const handleClick = (index) => {
@@ -290,7 +292,7 @@ const Accelerators = () => {
           <p className='text-[#FFDCC1] font-bold text-4xl text-center pt-4 lg:pt-4 ' >Projects</p>
         
         <div className='hidden lg:flex gap-5 justify-center mt-6 h-[55vh] ' >
-              {Object.values(projects).map((project) => (
+              {projects.map((project) => (
                 <ProjectCard
                 key = {project.name}
                 name = {project.name}
@@ -302,43 +304,54 @@ const Accelerators = () => {
               ))}
 
         </div>
-
-        <div style={{ touchAction: 'none' }} {...bind()} className='relative overflow-hidden flex lg:hidden gap-5 justify-center mt-6 h-[380px]'>
-  <motion.div
-    key={currentIndex}
-    initial={{ opacity: 0, x: 100 }}
-    animate={{ opacity: 1, x: 0 }}
-    exit={{ opacity: 0, x: -100 }}
-    transition={{ type: 'spring', stiffness: 300 }}
-    style={{
-      position: 'absolute',
-      width: '100%',
-      height: '100%',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      background: '#141930',
-      borderRadius: '10px',
-    }}
-  >
-    {projects.map((project, index) => (
-      <div
-        style={{
-          display: index === currentIndex ? 'block' : 'none',
-        }}
-        key={project.name}
-      >
-        <ProjectCard
-          name={project.name}
-          description={project.description}
-          image={project.image}
-          repo={project.repo}
-          projectLink={project.projectLink}
-        />
+        <div className='relative overflow-hidden lg:hidden w-full h-[410px]  '>
+        <div style={{ touchAction: 'none' }} {...bind()} className='flex gap-5 justify-center mt-6'>
+        {projects.map((project, index) => (
+              <motion.div
+                key={project.name}
+                className="absolute w-full h-[380px] flex justify-center items-center"
+                animate={{ 
+                  opacity: index === currentIndex ? 1 : 0.5,
+                  x: index === currentIndex ? 0 : index < currentIndex ? '-100%' : '100%', 
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 250,
+                  damping: 60,
+                }}
+              >
+                {index === currentIndex && (
+                  <ProjectCard
+                    name={project.name}
+                    description={project.description}
+                    image={project.image}
+                    repo={project.repo}
+                    projectLink={project.projectLink}
+                  />
+                )}
+              </motion.div>
+        ))}
       </div>
-    ))}
-  </motion.div>
-</div>
+      </div>
+ {/* <div className='PhotoScrollerMobile lg:hidden w-[100vw] flex justify-center'>
+            {projects.map((project, index) => (
+              <animated.div
+                key={project.name}
+                style={{ ...props }}
+                className="w-full h-full flex justify-center items-center"
+              >
+                {index === currentIndex && (
+                  <ProjectCard
+                    name={project.name}
+                    description={project.description}
+                    image={project.image}
+                    repo={project.repo}
+                    projectLink={project.projectLink}
+                  />
+                )}
+              </animated.div>
+            ))}
+          </div> */}
 
     </div>
     </BackgroundBeamsWithCollision>
