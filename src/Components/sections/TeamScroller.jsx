@@ -139,6 +139,10 @@ const TeamScroller = () => {
     }
 
   };
+  const convertDriveLink = (url) => {
+    const match = url.match(/\/d\/([^/]+)/);
+    return match ? `https://lh3.googleusercontent.com/d/${match[1]}` : "Invalid URL";
+  };
 
   const renderPositionCards = (role, designation = null) => {
     const members = getMembersByRole(role, designation);
@@ -148,7 +152,7 @@ const TeamScroller = () => {
         domain={categories[role].domain}
         name={member.name}
         tagline={member.tagline}
-        image={member.image}
+        image={convertDriveLink(member.image)}
         github={member.github}
         insta={member.insta}
         linkedin={member.LinkedIn}
@@ -204,7 +208,7 @@ const TeamScroller = () => {
               domain={categories[role]?.domain}
               name={member.name}
               tagline={member.tagline}
-              image={member.image}
+              image={convertDriveLink(member.image)}
               github={member.github}
               insta={member.insta}
               linkedin={member.LinkedIn}
