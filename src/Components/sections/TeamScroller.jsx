@@ -139,6 +139,10 @@ const TeamScroller = () => {
     }
 
   };
+  const convertDriveLink = (url) => {
+    const match = url.match(/\/d\/([^/]+)/);
+    return match ? `https://lh3.googleusercontent.com/d/${match[1]}` : "Invalid URL";
+  };
 
   const renderPositionCards = (role, designation = null) => {
     const members = getMembersByRole(role, designation);
@@ -148,7 +152,7 @@ const TeamScroller = () => {
         domain={categories[role].domain}
         name={member.name}
         tagline={member.tagline}
-        image={member.image}
+        image={convertDriveLink(member.image)}
         github={member.github}
         insta={member.insta}
         linkedin={member.LinkedIn}
@@ -204,7 +208,7 @@ const TeamScroller = () => {
               domain={categories[role]?.domain}
               name={member.name}
               tagline={member.tagline}
-              image={member.image}
+              image={convertDriveLink(member.image)}
               github={member.github}
               insta={member.insta}
               linkedin={member.LinkedIn}
@@ -234,7 +238,7 @@ const TeamScroller = () => {
 
 
   return (
-    <div className="bg-[#141930]  " >
+    <div className="bg-[#141930] " >
     <div className="hidden lg:flex flex-row px-10 ">
       <div className="flex flex-col items-start justify-start h-screen text-white pt-16">
               {items.map((item, index) => (
@@ -425,7 +429,7 @@ const TeamScroller = () => {
 
       <div className="Option Scroller " >
 
-      <div className="flex flex-row items-start justify-center mb-16 text-white pt-6">
+      <div className="flex flex-row items-start justify-center text-white mb-16 pt-6">
               {items.map((item, index) => (
                 <motion.div
                   key={item}
