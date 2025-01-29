@@ -38,6 +38,14 @@ const Footer = () => {
               <br />
               India
             </p>
+            Contact Us
+Last updated on 24-01-2025 00:31:22<br></br>
+You may contact us using the information below:<br></br>
+Merchant Legal entity name: AAKARSH KUMAR <br />
+Registered Address: Purushottam Das Lane, A N Road, Gaya, Bihar, PIN: 823001 <br />
+Operational Address: Purushottam Das Lane, A N Road, Gaya, Bihar, PIN: 823001 <br />
+Telephone No: 6200050435 <br />
+E-Mail ID: kumaraakarsh25@gmail.com
           </div>
 
           <div className="flex-1 md:ml-auto md:text-right">
@@ -49,7 +57,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-pink-500 transition duration-300">
+                <Link to="/ourclub" className="hover:text-pink-500 transition duration-300">
                   Our Club
                 </Link>
               </li>
@@ -71,6 +79,11 @@ const Footer = () => {
               <li>
                 <Link to="/accelerators" className="hover:text-pink-500 transition duration-300">
                   Accelerators
+                </Link>
+              </li>
+              <li>
+                <Link to="/TermsConditions" className="hover:text-pink-500 transition duration-300">
+                  Terms and Conditions
                 </Link>
               </li>
             </ul>

@@ -73,7 +73,7 @@ export default function Contact(){
             
         <div className="h-1 border-t-0 border-b-[1px] border-red-400 w-10/12 ml-8 lg:ml-32 "></div>
         
-        <div className="flex flex-col justify-center lg:flex-row lg:justify-end gap-16 py-5 lg:py-10">
+        <div className="flex flex-col justify-center lg:flex-row lg:justify-center gap-16 py-5 lg:py-10">
         <div>
             <div className="mapouter flex justify-center relative text-right w-full h-[325px]">
       <div className="gmap_canvas overflow-hidden bg-none w-1/2 lg:w-full h-[325px]">
@@ -90,13 +90,13 @@ export default function Contact(){
       </div>
     </div>
                 <div className="flex flex-row justify-center gap-5 my-0 lg:my-8">
-                    <a href="http://github.com/realm-SRM" target="_blank" className="hover:brightness-150 transition"><button><GitHubIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
-                    <a href="http://x.com" target="_blank" className="hover:brightness-150 transition"><button><XIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
-                    <a href="http://facebook.com" target="_blank" className="hover:brightness-150 transition"><button><FacebookIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
-                    <a href="http://instagram.com" target="_blank" className="hover:brightness-150 transition"><button><InstagramIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
-                    <a href="http://linkedin.com" target="_blank" className="hover:brightness-150 transition"><button><LinkedInIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
-                    <a href="mailto:srmrealm@gmail.com" target="_blank" className="hover:brightness-150 transition"><button><EmailIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
-                    <a href="tel:9599714677" target="_blank" className="hover:brightness-150 transition"><button><LocalPhoneIcon style={{'color': '#9A50A5', fontSize: 30}} /></button></a>
+                    <a href="http://github.com/realm-SRM" target="_blank" className="hover:brightness-150 transition"><button><GitHubIcon style={{'color': '#9A50A5', fontSize: 25}} /></button></a>
+                    <a href="http://x.com" target="_blank" className="hover:brightness-150 transition"><button><XIcon style={{'color': '#9A50A5', fontSize: 25}} /></button></a>
+                    <a href="http://facebook.com" target="_blank" className="hover:brightness-150 transition"><button><FacebookIcon style={{'color': '#9A50A5', fontSize: 25}} /></button></a>
+                    <a href="http://instagram.com" target="_blank" className="hover:brightness-150 transition"><button><InstagramIcon style={{'color': '#9A50A5', fontSize: 25}} /></button></a>
+                    <a href="http://linkedin.com" target="_blank" className="hover:brightness-150 transition"><button><LinkedInIcon style={{'color': '#9A50A5', fontSize: 25}} /></button></a>
+                    <a href="mailto:srmrealm@gmail.com" target="_blank" className="hover:brightness-150 transition"><button><EmailIcon style={{'color': '#9A50A5', fontSize: 25}} /></button></a>
+                    <a href="tel:9599714677" target="_blank" className="hover:brightness-150 transition"><button><LocalPhoneIcon style={{'color': '#9A50A5', fontSize: 25}} /></button></a>
                 </div>
             </div>
 

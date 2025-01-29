@@ -9,14 +9,14 @@ def create_app():
     # import routes
     from app.routes.contact_routes import contact_routes
     from app.routes.members_routes import members_routes
-    from app.routes.recruitment_routes import recruitment_routes
+    from app.routes.joinus_routes import joinus_routes
 
     # register routes
     app.register_blueprint(contact_routes, url_prefix="/api")
     app.register_blueprint(members_routes, url_prefix="/api")
-    app.register_blueprint(recruitment_routes, url_prefix="/api")
+    app.register_blueprint(joinus_routes, url_prefix="/api")
 
     # Initialize scheduled task
-    ScheduledTask(1800)  # 1800 seconds aka 1/2 hour
+    ScheduledTask(900)  # 900 seconds aka 15 MINS
 
     return app
