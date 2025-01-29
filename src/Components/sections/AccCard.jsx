@@ -12,7 +12,7 @@ import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 
 export default function AccCard(props){
 
-    const [isPlaying, setIsPlaying] = useState(true); //Initially set to playing
+    const [isPlaying, setIsPlaying] = useState(false); //Initially set to playing
     const [volume, setVolume] = useState(0.5);  // Initial volume set to 50%
     const [muted, setMuted] = useState(false);  // Initially not muted
 
@@ -30,9 +30,9 @@ export default function AccCard(props){
 
 
     return(
-        <div className="AccCard bg-[#26235C] h-full items-start justify-center rounded-3xl px-2 py-2 border-black border-[5px] " >
+        <div className="AccCard bg-[#26235C] w-[250px] h-[350px] lg:h-full items-start justify-center rounded-3xl px-2 py-2 border-black border-[5px] " >
             <div className='Topper flex flex-row gap-3 justify-start ' >
-                <img src={Mainlogo} className=" w-[3vw] " />
+                <img src={Mainlogo} className=" w-[50px] " />
                 <div className='text-[#FFDEC4] text-xs xl:text-lg  ' >
                     <p>Realm SRM</p>
                     <p>Accelerator</p>
@@ -42,7 +42,7 @@ export default function AccCard(props){
             <div className='Profile ' >
 
                 <div className='Photo flex justify-center ' >
-                    <img src={props.pfp} className=' lg:w-[100px] lg:h-[100px] xl:w-[120px] xl:h-[120px]  '  />
+                    <img src={props.pfp} className=' w-[60px] lg:w-[100px] lg:h-[100px] xl:w-[120px] xl:h-[120px]  '  />
                 </div>
 
                 <div className='Name flex justify-center text-white text-md ' >
@@ -63,7 +63,7 @@ export default function AccCard(props){
 
            
 
-            <div className='MusicThingy flex flex-row justify-center lg:gap-0 xl:gap-5 text-white mb-4 ' >
+            <div className='MusicThingy flex flex-row justify-center gap-5 lg:gap-0 xl:gap-5 text-white mb-4 ' >
                     <ReactPlayer 
                     className="pb-20 hidden" 
                     url={props.music} 
