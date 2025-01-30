@@ -13,5 +13,8 @@ export default defineConfig({
       },
     },
   },
+  optimizeDeps: {
+    include: ["@cashfreepayments/cashfree-js"]
+  },
   plugins: [react()],
 })

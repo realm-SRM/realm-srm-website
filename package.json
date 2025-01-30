@@ -11,6 +11,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@cashfreepayments/cashfree-js": "^1.0.5",
+    "@cashfreepayments/cashfree-sdk": "^0.1.7",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^6.4.0",
@@ -20,12 +22,12 @@
     "@tabler/icons-react": "^3.29.0",
     "@use-gesture/react": "^10.3.1",
     "autoprefixer": "^10.4.20",
+    "cashfree-pg": "^4.3.10",
     "clsx": "^2.1.1",
     "framer-motion": "^11.18.0",
     "html2canvas": "^1.4.1",
-    "motion": "^12.0.6",
+    "motion": "^12.0.5",
     "react": "^18.3.1",
-    "react-card-flip": "^1.2.3",
     "react-dom": "^18.3.1",
     "react-intersection-observer": "^9.15.0",
     "react-player": "^2.16.0",

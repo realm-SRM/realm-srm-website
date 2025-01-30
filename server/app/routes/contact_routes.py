@@ -36,7 +36,6 @@ def api_contact():
 
     if not all([firstname, lastname, mail_id, phone_no, text]):
         return jsonify({"message":"Missing Fields"}), 400
-    print(email_sender, email_password, email_reciever)
     yag = yagmail.SMTP(email_sender, email_password)
     email_status = yag.send(
         to=email_reciever,

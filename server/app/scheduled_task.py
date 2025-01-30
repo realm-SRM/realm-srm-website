@@ -75,9 +75,7 @@ class ScheduledTask:
                             "github": mapped_data['Github Profile URL'],
                             "LinkedIn": mapped_data['Linkedin Profile URL']
                         })
-            print(result)
             with open('members.json', 'w') as f:
-                print("Writing to members.json")
                 json.dump(result, f, indent=4)
             return True
 
