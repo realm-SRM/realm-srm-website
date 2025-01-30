@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        poppins: ['Poppins', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif', ],
+        belle: ["La Belle Aurore", "cursive"],
       },
       colors: {
         strokeColor: '#000',
