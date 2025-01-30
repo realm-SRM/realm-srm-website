@@ -18,9 +18,9 @@ joinus_routes = Blueprint('joinus_routes', __name__)
 def api_joinus_create_order():
 
 
-    customerDetails = CustomerDetails(customer_id="ak1hhdtddsfssdsseedgssdfssgssst5fsg90dd"+str(random.randint(100,12000)), customer_phone="6200050435")
+    customerDetails = CustomerDetails(customer_id="ak1hhdtddsf0dd"+str(random.randint(100,12000)), customer_phone="6200050435")
 
-    createOrderRequest = CreateOrderRequest(order_id="ordesddtsgdssesdfssfsddsgstsfr_asgkss1dd278"+str(random.randint(100,12000)), order_amount=1.00, order_currency="INR", customer_details=customerDetails)
+    createOrderRequest = CreateOrderRequest(order_id="o278"+str(random.randint(100,12000)), order_amount=1.00, order_currency="INR", customer_details=customerDetails)
 
     orderMeta = OrderMeta()
     orderMeta.return_url = "https://render-deployement-test.vercel.app/joinus?order_id={order_id}"
