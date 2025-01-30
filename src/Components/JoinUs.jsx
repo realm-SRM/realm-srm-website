@@ -48,7 +48,7 @@ const JoinUs = () => {
                   placeholder="Enter Your Register Number"
                   value={regNumber}
                   onChange={(e) => setRegNumber(e.target.value)}
-                  className="text-md font-bold text-center mt-[30px] w-[80%] mx-auto block bg-transparent rounded px-2 py-1 placeholder-[#FFDCC1] placeholder-opacity-40 text-[15px]"
+                  className="text-md font-bold text-center mt-[30px] w-[95%] mx-auto block bg-transparent rounded px-2 py-1 placeholder-[#FFDCC1] placeholder-opacity-40 text-[18px]"
                 />
                 <div className="flex mt-[20px]">
                   <select
@@ -81,7 +81,7 @@ const JoinUs = () => {
               </div>
               <div className="mt-[400px] ml-[210px] text-[#FFDCC1]">
               <select
-               className="text-[22px] font-belle  px-0 py-1 rounded text-[#FFDCC1] bg-transparent appearance-none"
+               className="text-[22px] font-belle  px-0 outline-none  rounded text-[#FFDCC1] bg-transparent appearance-none"
               value={domain}
               onChange={(e) => setdomain(e.target.value)}
               >
@@ -92,6 +92,7 @@ const JoinUs = () => {
                 <option className="text-black font-poppins text-[13px] text-center " value="UI/UX">UI/UX</option>
                 <option className="text-black font-poppins text-[13px] text-center" value="Events">Events</option>
               </select>
+              <h2 className="text-[11px] mt-[-8px] ml-[-25px]">Select your domain</h2>
             </div>
               <div className="absolute bottom-0 left-0 w-full h-18">
                 <img src={Down} alt="" />
@@ -142,6 +143,7 @@ const JoinUs = () => {
                 <h2 className="mt-[-110px] text-[#FFDCC1] font-bold">Scan To Pay</h2>
                 <img className="w-[100px] ml-[-100px] mt-[-75px]" src={QR} alt="" />
               </div>
+
               <div className="absolute bottom-12 ml-[38px] text-[11px] text-[#FFDCC1] text-center">
                 “Good luck! Hoping to see you in our club”
               </div>
