@@ -5,9 +5,7 @@ import Standby from '../assets/Standby.png'
 import AccCard from './sections/AccCard'
 import ProjectCard from './sections/ProjectCard';
 import { BackgroundBeamsWithCollision } from "./sections/ui/background-beams-with-collision";
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useDrag } from '@use-gesture/react';
-import { useSpring, animated } from 'react-spring';
 
 const Accelerators = () => {
 
@@ -50,6 +48,7 @@ const Accelerators = () => {
       tagline: "Code smarter, Not harder", 
       skill: ["Eat", "Sleep", "Repeat" ], 
       music: "https://soundcloud.com/rana-faseeh-ullah/honey-singh-choot-vol-1-dance?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing", 
+      songName: "Uhhhhh",
       insta: "https://instagram.com", 
       github: "https://github.com", 
       linkedin: "https://linkedin.in" 
@@ -61,6 +60,7 @@ const Accelerators = () => {
       tagline: "Work smarter, Not harder", 
       skill: ["HTML", "VSCODE", "Napping" ], 
       music: "https://soundcloud.com/akise-mn/one-piece-ost-overtaken?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing", 
+      songName: "Overtaken",
       insta: "https://instagram.com", 
       github: "https://github.com", 
       linkedin: "https://linkedin.in" 
@@ -72,6 +72,7 @@ const Accelerators = () => {
       tagline: "Work Smart", 
       skill: ["Boostrap", "Tailwind", "CSS" ], 
       music: "https://soundcloud.com/farshad-ahmad/guzarish-ghajini?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing", 
+      songName: "Guzarish",
       insta: "https://instagram.com", 
       github: "https://github.com", 
       linkedin: "https://linkedin.in" 
@@ -83,6 +84,7 @@ const Accelerators = () => {
       tagline: "Be Carefree", 
       skill: ["Eat", "Care", "Dont Care" ], 
       music: "https://soundcloud.com/racso2099/the-less-i-know-the-better-vinyl?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing", 
+      songName: "The Less I Know The Better",
       insta: "https://instagram.com", 
       github: "https://github.com", 
       linkedin: "https://linkedin.in" 
@@ -94,6 +96,7 @@ const Accelerators = () => {
       tagline: "Be Caring", 
       skill: ["Eat", "Sleep", "Repeat" ], 
       music: "https://soundcloud.com/boogieda-king089/borderline-tame-impala-sped-up?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing", 
+      songName: "Borderline",
       insta: "https://instagram.com", 
       github: "https://github.com", 
       linkedin: "https://linkedin.in" 
@@ -278,7 +281,8 @@ const Accelerators = () => {
                   music={membersList[members[2]].music}
                   insta={membersList[members[2]].insta}
                   github={membersList[members[2]].github}
-                  linkedin={membersList[members[2]].linkedin} 
+                  linkedin={membersList[members[2]].linkedin}
+                  songName={membersList[members[2]].songName} 
                   />
               </motion.div>
             </AnimatePresence>
@@ -289,7 +293,7 @@ const Accelerators = () => {
           <hr className=' bg-[#F15191] ' />
           </div>
 
-          <p className='text-[#FFDCC1] font-bold text-4xl text-center pt-4 lg:pt-4 ' >Projects</p>
+          <p className='text-[#FFDCC1] font-bold text-4xl text-center pt-6 lg:pt-4 ' >Projects</p>
         
         <div className='hidden lg:flex gap-5 justify-center mt-6 h-[55vh] ' >
               {projects.map((project) => (
@@ -304,7 +308,7 @@ const Accelerators = () => {
               ))}
 
         </div>
-        <div className='relative overflow-hidden lg:hidden w-full h-[410px]  '>
+        <div className='relative overflow-hidden lg:hidden w-full h-[450px]  '>
         <div style={{ touchAction: 'none' }} {...bind()} className='flex gap-5 justify-center mt-6'>
         {projects.map((project, index) => (
               <motion.div
@@ -333,26 +337,6 @@ const Accelerators = () => {
         ))}
       </div>
       </div>
- {/* <div className='PhotoScrollerMobile lg:hidden w-[100vw] flex justify-center'>
-            {projects.map((project, index) => (
-              <animated.div
-                key={project.name}
-                style={{ ...props }}
-                className="w-full h-full flex justify-center items-center"
-              >
-                {index === currentIndex && (
-                  <ProjectCard
-                    name={project.name}
-                    description={project.description}
-                    image={project.image}
-                    repo={project.repo}
-                    projectLink={project.projectLink}
-                  />
-                )}
-              </animated.div>
-            ))}
-          </div> */}
-
     </div>
     </BackgroundBeamsWithCollision>
   )
