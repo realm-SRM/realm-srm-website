@@ -9,12 +9,37 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import PauseIcon from '@mui/icons-material/Pause';
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
+import html2canvas from 'html2canvas';
 
 export default function AccCard(props){
 
     const [isPlaying, setIsPlaying] = useState(false); //Initially set to playing
     const [volume, setVolume] = useState(0.5);  // Initial volume set to 50%
     const [muted, setMuted] = useState(false);  // Initially not muted
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [imageUrl, setImageUrl] = useState(null);
+
+    const handleShareClick = () => {
+        setTimeout(() => {
+            html2canvas(document.getElementById('position-card'), {
+                scale: 1, // Make sure to increase scale for clarity
+                logging: true,
+                useCORS: true,
+            }).then(canvas => {
+                const image = canvas.toDataURL('image/png');
+                setImageUrl(image);
+                setIsModalOpen(true);
+            });
+        }, 300);
+    };
+
+    const handleDownload = () => {
+        const link = document.createElement('a');
+        link.href = imageUrl;
+        link.download = 'position-card.png';
+        link.click();
+    };
 
     const togglePlay = () => {
         setIsPlaying(!isPlaying);
@@ -30,7 +55,7 @@ export default function AccCard(props){
 
 
     return(
-        <div className="AccCard bg-[#26235C] w-[250px] h-[350px] lg:h-full items-start justify-center rounded-3xl px-2 py-2 border-black border-[5px] " >
+        <div className="AccCard bg-[#26235C] w-[250px] h-[350px] lg:h-full items-start justify-center rounded-3xl px-2 py-2 border-black border-[5px] " id="position-card"  >
             <div className='Topper flex flex-row gap-3 justify-start ' >
                 <img src={Mainlogo} className=" w-[50px] " />
                 <div className='text-[#FFDEC4] text-xs xl:text-lg  ' >
@@ -99,8 +124,35 @@ export default function AccCard(props){
                     <a href={props.github} target="_blank"><button><GitHubIcon /></button></a>
                     <a href={props.insta} target="_blank"><button><InstagramIcon /></button></a>
                     <a href={props.linkedin} target="_blank"><button><LinkedInIcon /></button></a>
-                    <button ><ShareIcon /></button>
+                    <button onClick={handleShareClick} ><ShareIcon /></button>
             </div>
+
+            {isModalOpen && (
+                    <>
+
+                <div 
+                    className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-50"
+                    onClick={() => setIsModalOpen(false)}
+                />
+
+                <div className="modal fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+                    <div className="modal-content max-w-[400px] bg-blue-950 p-4 rounded-lg text-center">
+                        <h2 className="text-xl mb-4 text-white ">Download Position Card</h2>
+                        <img src={imageUrl} alt="Position Card Screenshot" className="w-full h-full mb-4" />
+                        <div className='flex flex-row justify-center gap-4' >
+                        <button onClick={handleDownload} className="bg-[#8257E5] text-white px-4 py-2 rounded-lg">
+                            Download Image
+                        </button>
+                        <button onClick={() => setIsModalOpen(false)} className=" bg-red-900 text-white px-4 py-2 rounded-lg">
+                            Close
+                        </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                </>
+            )}
 
         </div>
     );

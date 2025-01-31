@@ -5,7 +5,6 @@ import Standby from '../assets/Standby.png'
 import AccCard from './sections/AccCard'
 import ProjectCard from './sections/ProjectCard';
 import { BackgroundBeamsWithCollision } from "./sections/ui/background-beams-with-collision";
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useDrag } from '@use-gesture/react';
 
 const Accelerators = () => {
