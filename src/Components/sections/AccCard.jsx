@@ -13,7 +13,7 @@ import html2canvas from 'html2canvas';
 
 export default function AccCard(props){
 
-    const [isPlaying, setIsPlaying] = useState(false); //Initially set to playing
+    const [isPlaying, setIsPlaying] = useState(true); //Initially set to playing
     const [volume, setVolume] = useState(0.5);  // Initial volume set to 50%
     const [muted, setMuted] = useState(false);  // Initially not muted
 
@@ -55,7 +55,7 @@ export default function AccCard(props){
 
 
     return(
-        <div className="AccCard bg-[#26235C] w-[250px] h-[350px] lg:h-full items-start justify-center rounded-3xl px-2 py-2 border-black border-[5px] " id="position-card"  >
+        <div className="AccCard bg-[#26235C] w-[250px] h-[370px] lg:h-[54vh] items-start justify-center rounded-3xl px-2 py-2 border-black border-[5px] " id="position-card"  >
             <div className='Topper flex flex-row gap-3 justify-start ' >
                 <img src={Mainlogo} className=" w-[50px] " />
                 <div className='text-[#FFDEC4] text-xs xl:text-lg  ' >
@@ -67,7 +67,7 @@ export default function AccCard(props){
             <div className='Profile ' >
 
                 <div className='Photo flex justify-center ' >
-                    <img src={props.pfp} className=' w-[60px] lg:w-[100px] lg:h-[100px] xl:w-[120px] xl:h-[120px]  '  />
+                    <img src={props.pfp} className=' w-[60px] lg:w-[100px] lg:h-[100px] xl:w-[90px] xl:h-[90px]  '  />
                 </div>
 
                 <div className='Name flex justify-center text-white text-md ' >
@@ -88,7 +88,7 @@ export default function AccCard(props){
 
            
 
-            <div className='MusicThingy flex flex-row justify-center gap-5 lg:gap-0 xl:gap-5 text-white mb-4 ' >
+            <div className='MusicThingy flex flex-row justify-center gap-5 lg:gap-0 xl:gap-5 text-white mb-0 ' >
                     <ReactPlayer 
                     className="pb-20 hidden" 
                     url={props.music} 
@@ -120,6 +120,14 @@ export default function AccCard(props){
 
             </div>
 
+            <div className='flex justify-center text-white text-xs ' >
+                Now Playing
+            </div>
+
+            <div className='flex justify-center text-white text-sm mb-2 ' >
+                {props.songName}
+            </div>
+
             <div className='Socials flex justify-center text-white gap-5 ' >
                     <a href={props.github} target="_blank"><button><GitHubIcon /></button></a>
                     <a href={props.insta} target="_blank"><button><InstagramIcon /></button></a>
@@ -136,8 +144,8 @@ export default function AccCard(props){
                 />
 
                 <div className="modal fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-                    <div className="modal-content max-w-[400px] bg-blue-950 p-4 rounded-lg text-center">
-                        <h2 className="text-xl mb-4 text-white ">Download Position Card</h2>
+                    <div className="modal-content max-w-[400px] bg-white p-4 rounded-xl text-center">
+                        <h2 className="text-xl mb-4 ">Download Position Card</h2>
                         <img src={imageUrl} alt="Position Card Screenshot" className="w-full h-full mb-4" />
                         <div className='flex flex-row justify-center gap-4' >
                         <button onClick={handleDownload} className="bg-[#8257E5] text-white px-4 py-2 rounded-lg">

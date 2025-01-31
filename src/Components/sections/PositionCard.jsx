@@ -15,9 +15,10 @@ export default function PositionCard({ domain, name, tagline, image, github, ins
     const handleShareClick = () => {
         setTimeout(() => {
             html2canvas(document.getElementById('position-card'), {
-                scale: 1, // Make sure to increase scale for clarity
+                scale: 2, // Make sure to increase scale for clarity
                 logging: true,
                 useCORS: true,
+                allowTaint: true,
             }).then(canvas => {
                 const image = canvas.toDataURL('image/png');
                 console.log(image)
@@ -78,7 +79,7 @@ export default function PositionCard({ domain, name, tagline, image, github, ins
                 </div>
 
 
-                {isModalOpen && (
+                {isModalOpen && imageUrl && (
                     <>
 
                 <div 
@@ -87,8 +88,8 @@ export default function PositionCard({ domain, name, tagline, image, github, ins
                 />
 
                 <div className="modal fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-                    <div className="modal-content max-w-[400px] bg-blue-950 p-4 rounded-lg text-center">
-                        <h2 className="text-xl mb-4 text-white ">Download Position Card</h2>
+                    <div className="modal-content max-w-[400px] bg-white p-4 rounded-lg text-center">
+                        <h2 className="text-xl mb-4 ">Download Position Card</h2>
                         <img src={imageUrl} alt="Position Card Screenshot" className="w-full h-full mb-4" />
                         <div className='flex flex-row justify-center gap-4' >
                         <button onClick={handleDownload} className="bg-[#8257E5] text-white px-4 py-2 rounded-lg">
