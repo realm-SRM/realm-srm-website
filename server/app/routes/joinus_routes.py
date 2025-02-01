@@ -10,7 +10,12 @@ load_dotenv(override=True)
 
 Cashfree.XClientId = os.getenv("CASHFREE_APP_ID")
 Cashfree.XClientSecret = os.getenv("CASHFREE_SECRET_KEY")
-Cashfree.XEnvironment = Cashfree.PRODUCTION
+# Cashfree.XEnvironment = Cashfree.PRODUCTION
+# Cashfree.XEnvironment = Cashfree.SANDBOX
+if os.getenv("CASHFREE_ENVIRONMENT") == "PRODUCTION":
+    Cashfree.XEnvironment = Cashfree.PRODUCTION
+else:
+    Cashfree.XEnvironment = Cashfree.SANDBOX
 x_api_version = "2023-08-01"
 joinus_routes = Blueprint('joinus_routes', __name__)
 
@@ -23,7 +28,7 @@ def api_joinus_create_order():
     createOrderRequest = CreateOrderRequest(order_id="o278"+str(random.randint(100,12000)), order_amount=1.00, order_currency="INR", customer_details=customerDetails)
 
     orderMeta = OrderMeta()
-    orderMeta.return_url = f"{os.getenv('APP_URL')}/joinus?order_id={{order_id}}"
+    orderMeta.return_url = f"{os.getenv('APP_URL')}/join-us?order_id={{order_id}}"
     createOrderRequest.order_meta = orderMeta
 
     try:
