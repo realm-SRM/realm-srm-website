@@ -309,7 +309,7 @@ const Accelerators = () => {
 
         </div>
         <div className='relative overflow-hidden lg:hidden w-full h-[450px]  '>
-        <div style={{ touchAction: 'none' }} {...bind()} className='flex gap-5 justify-center mt-6'>
+        <div {...bind()} className='flex gap-5 justify-center mt-6'>
         {projects.map((project, index) => (
               <motion.div
                 key={project.name}
