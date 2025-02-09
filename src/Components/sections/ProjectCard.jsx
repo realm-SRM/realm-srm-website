@@ -13,8 +13,8 @@ export default function ProjectCard(props) {
             </div>
 
             <div className=" Links flex gap-2 lg:gap-1 xl:gap-2 justify-center mb-5 mt-auto " >
-                <a href={props.repo} ><button className=" bg-[#F15191] lg:text-sm xl:text-lg text-white px-5 lg:px-5 xl:px-8 py-2 rounded-full " >Repo</button></a>
-                <a href={props.projectLink} ><button className=" bg-[#F15191] lg:text-sm xl:text-lg text-white px-5 lg:px-5 xl:px-8 py-2 rounded-full " >Project</button></a>
+                <a href={props.repo} target="_blank" ><button className=" bg-[#F15191] lg:text-sm xl:text-lg text-white px-5 lg:px-5 xl:px-8 py-2 rounded-full " >Repo</button></a>
+                <a href={props.projectLink} target="_blank" ><button className=" bg-[#F15191] lg:text-sm xl:text-lg text-white px-5 lg:px-5 xl:px-8 py-2 rounded-full " >Project</button></a>
             </div>
             <p className=" lg:hidden pb-2 text-white text-lg flex justify-center text-center" >Swipe →</p>
 
