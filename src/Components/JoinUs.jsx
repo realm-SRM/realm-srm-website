@@ -99,7 +99,7 @@ const JoinUs = () => {
             initial={{ opacity: 0, y: -500 }}
             transition={{ duration: 1.3 }}
           >
-            <div className="relative w-[300px] h-[500px] bg-[#1b2243] rounded-xl overflow-hidden border-2 border-[#F99D93] mt-[10px] shadow-lg">
+            <div className="relative w-[300px] h-[500px] bg-[#1b2243] rounded-xl overflow-hidden border-2 border-[#F99D93] shadow-lg">
               <div className="absolute top-0 left-0 w-full h-20">
                 <img src={Up} alt="" />
               </div>
@@ -226,7 +226,7 @@ const JoinUs = () => {
           </motion.div>
 
           <div>
-            <div className="relative w-[300px] h-[500px] rounded-xl overflow-hidden bg-[#1b2243] border-2 border-[#F99D93] mt-[10px] shadow-lg">
+            <div className="relative w-[300px] h-[500px] rounded-xl overflow-hidden bg-[#1b2243] border-2 border-[#F99D93] shadow-lg">
               <div className="absolute top-0 left-0 w-full h-20">
                 <img src={Up} alt="" />
               </div>
@@ -280,7 +280,6 @@ const JoinUs = () => {
                 <img src={Down} alt="" />
               </div>
             </div>
-            
           </div>
         </ReactCardFlip>
         <motion.button
