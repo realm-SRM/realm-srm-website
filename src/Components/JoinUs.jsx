@@ -20,51 +20,53 @@ initializeSDK();
 const submitPayment = async () => {
   // payload will have all the deinformation of the user
   // create payload by taking value from the input fields
-  const payload = { name: "aakarsh", email: "aakarsh2504@gmail.com" }; // Replace with your data
-
-  try {
-    const response = await fetch(
-      `${import.meta.env.VITE_API_URL}/api/joinus/create_order`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: payload,
-      }
-    );
-
-    const data = await response.json();
-
-    console.log(data.payment_session_id);
-    let checkoutOptions = {
-      paymentSessionId: data.payment_session_id,
-      redirectTarget: "_modal",
+    const payload = {
+      Name,
+      email,
+      phone,
+      regNumber,
+      year,
+      gender,
+      domain,
     };
-    cashfree.checkout(checkoutOptions).then((result) => {
-      if (result.error) {
-        // This will be true whenever user clicks on close icon inside the modal or any error happens during the payment
-        console.log(
-          "User has closed the popup or there is some payment error, Check for Payment Status"
-        );
-        console.log(result.error);
-      }
-      if (result.redirect) {
-        // This will be true when the payment redirection page couldnt be opened in the same window
-        // This is an exceptional case only when the page is opened inside an inAppBrowser
-        // In this case the customer will be redirected to return url once payment is completed
-        console.log("Payment will be redirected");
-      }
-      if (result.paymentDetails) {
-        // This will be called whenever the payment is completed irrespective of transaction status
-        console.log("Payment has been completed, Check for Payment Status");
-        console.log(result.paymentDetails.paymentMessage);
-      }
-    });
-  } catch (error) {
-    console.log("Error submitting form: " + error.message);
-  }
-};
+  
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/joinus/create_order`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload), // Convert payload to JSON string
+        }
+      );
+  
+      const data = await response.json();
+  
+      console.log(data.payment_session_id);
+      let checkoutOptions = {
+        paymentSessionId: data.payment_session_id,
+        redirectTarget: "_modal",
+      };
+  
+      cashfree.checkout(checkoutOptions).then((result) => {
+        if (result.error) {
+          console.log("User closed popup or there was a payment error.");
+          console.log(result.error);
+        }
+        if (result.redirect) {
+          console.log("Payment will be redirected.");
+        }
+        if (result.paymentDetails) {
+          console.log("Payment completed, check status.");
+          console.log(result.paymentDetails.paymentMessage);
+        }
+      });
+    } catch (error) {
+      console.log("Error submitting form: " + error.message);
+    }
+  };
 
 const JoinUs = () => {
   const [cashfree, setCashfree] = useState(null);
@@ -77,7 +79,7 @@ const JoinUs = () => {
   }, []);
 
   const [isFlipped, setIsFlipped] = useState(false);
-  const [name, setName] = useState("");
+  const [Name, setName] = useState("");
   const [year, setYear] = useState("1st");
   const [gender, setGender] = useState("M");
   const [regNumber, setRegNumber] = useState("");
@@ -164,7 +166,7 @@ const JoinUs = () => {
                 <input
                   type="text"
                   placeholder="Enter Cardholder Name"
-                  value={name}
+                  value={Name}
                   onChange={(e) => setName(e.target.value)}
                   className="mt-[26px] w-[80%] mx-auto block text-center text-md font-bold text-[#FFDCC1] bg-transparent rounded px-2 py-1 placeholder-[#FFDCC1] placeholder-opacity-40"
                 />
@@ -267,7 +269,7 @@ const JoinUs = () => {
                 </h2>
               </div>
               <img
-                className="w-[150px] ml-[30%] mt-[-5px]"
+                className="w-[150px] ml-[30%] mt-[-5px] hover:cursor-pointer"
                 src={TapPay}
                 alt="Tap&Pay"
                 onClick={submitPayment}
@@ -283,22 +285,13 @@ const JoinUs = () => {
           </div>
         </ReactCardFlip>
         <motion.button
-          whileInView={{ opacity: 1, x: 0 }}
-          initial={{ opacity: 0, x: -500 }}
-          transition={{ duration: 0.5, delay: 0 }}
-          className="absolute left-[42%] top-[650px] border text-[#FFDCC1] bg-[#141930] outline-none px-4 py-2 rounded transition-transform duration-300 hover:scale-105 active:scale-95"
+          
+          className="absolute left-[33%] top-[700px] border text-[#FFDCC1] bg-[#141930] outline-none px-4 py-2 rounded transition-transform duration-300 hover:scale-105 active:scale-95 lg:top-[680px] lg:left-[45.8%] sm:top-[720px]  "
           onClick={flipCard}
         >
           Click To Flip
         </motion.button>
-        <motion.button
-          whileInView={{ opacity: 1, x: 0 }}
-          initial={{ opacity: 0, x: 500 }}
-          transition={{ duration: 0.5 }}
-          className="absolute left-[52%] top-[650px] border text-[#FFDCC1] bg-[#141930] outline-none px-4 py-2 rounded transition-transform duration-300 hover:scale-105 active:scale-95"
-        >
-          Submit
-        </motion.button>
+        
       </div>
     </>
   );
