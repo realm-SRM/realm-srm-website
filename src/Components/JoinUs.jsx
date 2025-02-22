@@ -153,6 +153,9 @@ const JoinUs = () => {
                     <option className="text-black" value="F">
                       F
                     </option>
+                    <option className="text-black" value="Attack Helicopter">
+                      Attack Helicopter
+                    </option>
                     <option className="text-black" value="not say">
                       Prefer not to say
                     </option>
